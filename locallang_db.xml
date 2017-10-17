@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>main output</description>
+		<type>database</type>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_a21glossary_main">Glossary</label>
+			<label index="tx_a21glossary_main.short">Short form</label>
+			<label index="tx_a21glossary_main.shortcut">Alternative shortcut</label>
+			<label index="tx_a21glossary_main.longversion">Long text</label>
+			<label index="tx_a21glossary_main.shorttype.I.0">Language</label>
+			<label index="tx_a21glossary_main.shorttype.I.1">Definition</label>
+			<label index="tx_a21glossary_main.shorttype.I.2">Acronym, e.g. NATO</label>
+			<label index="tx_a21glossary_main.shorttype.I.3">Abbreviation, e.g. etc.</label>
+			<label index="tx_a21glossary_main.shorttype">Type</label>
+			<label index="tx_a21glossary_main.language.I.0">Not Set (All Languages)</label>
+			<label index="tx_a21glossary_main.language.I.1">English</label>
+			<label index="tx_a21glossary_main.language.I.2">French</label>
+			<label index="tx_a21glossary_main.language.I.3">German</label>
+			<label index="tx_a21glossary_main.language.I.4">Italian</label>
+			<label index="tx_a21glossary_main.language.I.5">Spain</label>
+			<label index="tx_a21glossary_main.language.I.6">Portuguese</label>
+			<label index="tx_a21glossary_main.language.I.7">Russian</label>
+			<label index="tx_a21glossary_main.language.I.8">Chinese</label>
+			<label index="tx_a21glossary_main.language.I.9">Japanese</label>
+			<label index="tx_a21glossary_main.language.I.10">Modern Greek</label>
+			<label index="tx_a21glossary_main.language.I.11">Ancient Greek</label>
+			<label index="tx_a21glossary_main.language.I.12">Latin</label>
+			<label index="tx_a21glossary_main.language.I.13">Hebrew</label>
+			<label index="tx_a21glossary_main.language">Differing language of item</label>
+			<label index="tx_a21glossary_main.description">Description</label>
+			<label index="tx_a21glossary_main.link">External Link (Override, Instead Of Glossary Page)</label>
+			<label index="tx_a21glossary_main.exclude">Exclude from frontend glossary list</label>
+			<label index="tx_a21glossary_main.force_linking">Linking</label>
+			<label index="tx_a21glossary_main.force_linking.I.0">Keep Global Setting</label>
+			<label index="tx_a21glossary_main.force_linking.I.1">Force Linking</label>
+			<label index="tx_a21glossary_main.force_linking.I.2">Force No Linking</label>
+			<label index="tx_a21glossary_main.force_case">Case Sensitivity</label>
+			<label index="tx_a21glossary_main.force_case.I.0">Keep Global Setting</label>
+			<label index="tx_a21glossary_main.force_case.I.1">Force Insensitive</label>
+			<label index="tx_a21glossary_main.force_case.I.2">Force Sensitive</label>
+			<label index="tx_a21glossary_main.force_preservecase">Preserve Displayed Case</label>
+			<label index="tx_a21glossary_main.force_preservecase.I.0">Keep Global Setting</label>
+			<label index="tx_a21glossary_main.force_preservecase.I.1">Force Like Displayed</label>
+			<label index="tx_a21glossary_main.force_preservecase.I.2">Force Like In Glossary</label>
+			<label index="tx_a21glossary_main.force_regexp">Item Recognition</label>
+			<label index="tx_a21glossary_main.force_regexp.I.0">Complete Word (Default)</label>
+			<label index="tx_a21glossary_main.force_regexp.I.1">Word Part</label>
+			<label index="tx_a21glossary_main.force_global">Replacement</label>
+			<label index="tx_a21glossary_main.force_global.I.0">Default</label>
+			<label index="tx_a21glossary_main.force_global.I.1">Override: Force In Whole Global Content</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_a21glossary_main">Glossar</label>
+			<label index="tx_a21glossary_main.short">Kurzform</label>
+			<label index="tx_a21glossary_main.shortcut">Alternatives Kürzel</label>
+			<label index="tx_a21glossary_main.longversion">Langtext</label>
+			<label index="tx_a21glossary_main.shorttype.I.0">Sprache</label>
+			<label index="tx_a21glossary_main.shorttype.I.1">Definition</label>
+			<label index="tx_a21glossary_main.shorttype.I.2">Akronym, z.B. &quot;NATO&quot;</label>
+			<label index="tx_a21glossary_main.shorttype.I.3">Abkürzung, z.B.&quot;etc.&quot;</label>
+			<label index="tx_a21glossary_main.shorttype">Typ</label>
+			<label index="tx_a21glossary_main.language.I.0">Nicht gesetzt (Alle Sprachen)</label>
+			<label index="tx_a21glossary_main.language.I.1">Englisch</label>
+			<label index="tx_a21glossary_main.language.I.2">Französisch</label>
+			<label index="tx_a21glossary_main.language.I.3">Deutsch</label>
+			<label index="tx_a21glossary_main.language.I.4">Italienisch</label>
+			<label index="tx_a21glossary_main.language.I.5">Spanisch</label>
+			<label index="tx_a21glossary_main.language.I.6">Portugiesisch</label>
+			<label index="tx_a21glossary_main.language.I.7">Russisch</label>
+			<label index="tx_a21glossary_main.language.I.8">Chinesisch</label>
+			<label index="tx_a21glossary_main.language.I.9">Japanisch</label>
+			<label index="tx_a21glossary_main.language.I.10">Neugrieschisch</label>
+			<label index="tx_a21glossary_main.language.I.11">Altgrieschisch</label>
+			<label index="tx_a21glossary_main.language.I.12">Latein</label>
+			<label index="tx_a21glossary_main.language.I.13">Hebräisch</label>
+			<label index="tx_a21glossary_main.language">Abweichende Sprache des Begriffs</label>
+			<label index="tx_a21glossary_main.description">Beschreibung</label>
+			<label index="tx_a21glossary_main.link">Externer Link (Override, statt Glossarseite)</label>
+			<label index="tx_a21glossary_main.exclude">Von der Glossar-Liste im Frontend ausschließen</label>
+			<label index="tx_a21glossary_main.force_linking">Verlinkung</label>
+			<label index="tx_a21glossary_main.force_linking.I.0">Wie global voreingestellt</label>
+			<label index="tx_a21glossary_main.force_linking.I.1">Erzwinge Verlinkung</label>
+			<label index="tx_a21glossary_main.force_linking.I.2">Erzwinge Keine Verlinkung</label>
+			<label index="tx_a21glossary_main.force_case">Beachtung Gross- Kleinschreibung</label>
+			<label index="tx_a21glossary_main.force_case.I.0">Wie global voreingestellt</label>
+			<label index="tx_a21glossary_main.force_case.I.1">Erzwinge Nichtbeachtung</label>
+			<label index="tx_a21glossary_main.force_case.I.2">Erzwinge Beachtung</label>
+			<label index="tx_a21glossary_main.force_preservecase">Beibehaltung von Gross- Kleinschreibung</label>
+			<label index="tx_a21glossary_main.force_preservecase.I.0">Wie global voreingestellt</label>
+			<label index="tx_a21glossary_main.force_preservecase.I.1">Erzwinge wie im Inhalt geschrieben</label>
+			<label index="tx_a21glossary_main.force_preservecase.I.2">Erzwinge wie im Glossar hinterlegt</label>
+			<label index="tx_a21glossary_main.force_regexp">Worterkennung</label>
+			<label index="tx_a21glossary_main.force_regexp.I.0">Komplettes Wort (Default)</label>
+			<label index="tx_a21glossary_main.force_regexp.I.1">Wortteil</label>
+			<label index="tx_a21glossary_main.force_global">ersetzen In </label>
+			<label index="tx_a21glossary_main.force_global.I.0">Wie voreingestellt</label>
+			<label index="tx_a21glossary_main.force_global.I.1">Erzwinge Im Gesamten Content (Nicht Empfohlen)</label>
+		</languageKey>
+	</data>
+</T3locallang>

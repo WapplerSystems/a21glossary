@@ -1,0 +1,67 @@
+a21glossary {
+		# cat=a21glossary; type=string; label=Storage page: Comma separated list of page IDs where the glossary entries are stored in the backend
+	storagePage = 0
+
+		# cat=a21glossary; type=int+; label=Frontend glossary page: Page ID of the frontend glossary page, where the list of glossary entries are shown
+	glossaryPage = 0
+
+		# cat=a21glossary; type=wrap; label=Glossary wrap: Wraps the whole glossary content
+	allWrap = <dl class="tx-glossary-list"> | </dl>
+
+		# cat=a21glossary; type=wrap; label=Term wrap: It wraps the term (Acronym / abbreviation / definition) in the glossary list
+	termWrap = <dt class="tx-glossary-term tx-glossary-term-{field:shorttype}"> | </dt>
+
+		# cat=a21glossary; type=wrap; label=Label wrap: It wraps the label of the term
+	labelWrap = <dd class="tx-glossary-typelabel tx-glossary-typelabel-{field:shorttype}"> | :</dd>
+
+		# cat=a21glossary; type=wrap; label=Abstract wrap: It wraps the abstract of the term
+	abstractWrap = <dd class="tx-glossary-abstract tx-glossary-abstract-{field:shorttype}"> | </dd>
+
+		# cat=a21glossary; type=wrap; label=Description wrap: It wraps the description of the term
+	descriptionWrap = <dd class="tx-glossary-description tx-glossary-description-{field:shorttype}"> | </dd>
+
+		# cat=a21glossary; type=string; label=Sorting field: The database field to sort the entries in the glossary list
+	orderBy = short
+
+		# cat=a21glossary; type=string; label=Back link label: Label for the back link
+	back = back
+
+		# cat=a21glossary; type=wrap; label=Back link wrap: Wrap of the back link
+	backWrap = <p class="tx-glossary-back">|</p>
+
+		# cat=a21glossary; type=string; label=All entries link label: Label for the all entries link
+	allEntries = show all entries
+
+		# cat=a21glossary; type=wrap; label=All entries link wrap: Wrap of the all entries link
+	allEntriesWrap = <p class="tx-glossary-all">|</p>
+
+		# cat=a21glossary; type=string; label=Acronym label: Label for acronyms (overrides default label)
+	acronym_label =
+
+		# cat=a21glossary; type=string; label=Abbreviation labels: Label for abbreviations (overrides default label)
+	abbreviation_label =
+
+		# cat=a21glossary; type=string; label=Definition label: Label for definitions (overrides default label)
+	definition_label =
+
+		# cat=a21glossary; type=boolean; label=Case sensitive: Whether to search for glossary elements case sensitively (setting of particular glossary element takes precedence)
+	caseSensitive = 1
+
+		# cat=a21glossary; type=boolean; label=Preseve case: Whether to preserve case for replaced glossary element occurrences (setting of particular glossary element takes precedence)
+	preserveCase = 0
+
+		# cat=a21glossary; type=small; label=Search pattern modifier: Pattern modifier used during searching for glossary elements
+	patternModifiers = su
+
+		# cat=a21glossary; type=int; label=Type list: List of types (typeNum) to be considered for replacing glossary elements
+	typeList = 0
+
+		# cat=a21glossary; type=string; label=Elements to be used: Only link those types of glossary elements
+	linkToGlossary = acronym,abbr,dfn
+
+		# cat=a21glossary; type=string; label=Element condition: Only link glossary elements if at least one of the listed fields has content
+	linkOnlyIfNotEmpty = description
+
+		# cat=a21glossary; type=comment; label=Enable anchor solution: Use anchored links instead of linking to the details page
+	commentAnchor = #
+}

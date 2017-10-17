@@ -1,0 +1,8 @@
+	# cat=basic; type=options[Only within custom a21 glossary tags (see manual or readme.txt)=CUSTOM,Automatically within search search tags (recommended if using indexed_search)=SEARCHTAGS,Use whole content (old style)=ALL]; label= WHAT to replace
+glossaryWHAT = ALL
+
+	# cat=basic; type=options[OFF: Do not invoke automatically (done by userfunc instead)=OFF,SLOW: On each page retrieval (even from page cache)=AFTERCACHING,FAST: Before caching (recommended - remember to clear page cache)=BEFORECACHING]; label= WHEN to replace
+glossaryWHEN = BEFORECACHING
+
+	# cat=basic; type=string; label= Exclude glossary within following tags
+excludeTags = a,form,acronym,abbr,dfn,h1,h2,h3,h4,h5,h6
