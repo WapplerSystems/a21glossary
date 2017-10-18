@@ -4,24 +4,6 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-t3lib_extMgm::addPageTSConfig('
-# **************************************************************************
-# CONFIGURATION of RTE in table "tx_a21glossary_main", field "description"
-# **************************************************************************
-RTE.config.tx_a21glossary_main.description {
-	hidePStyleItems = H1, H4, H5, H6
-	proc.exitHTMLparser_db = 1
-	proc.exitHTMLparser_db {
-		keepNonMatchedTags = 1
-		tags.font {
-			allowedAttribs= color
-			rmTagIfNoAttrib = 1
-			nesting = global
-		}
-	}
-}
-');
-
 
 $extConf = unserialize($_EXTCONF);
 
@@ -47,4 +29,3 @@ switch(strtoupper($extConf['glossaryWHEN'])) {
 
 unset($extConf);
 
-?>
