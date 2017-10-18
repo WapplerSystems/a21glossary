@@ -1,0 +1,19 @@
+﻿.. |image01|             image:: ../Images/Screenshots/image01.png
+.. :align: center
+.. :border: 0
+.. :name: image01
+
+.. |image02|             image:: ../Images/Screenshots/image02.png
+.. :align: center
+.. :border: 0
+.. :name: image02
+
+.. |image03|             image:: ../Images/Screenshots/image03.png
+.. :align: center
+.. :border: 0
+.. :name: image03
+
+.. |image04|             image:: ../Images/Screenshots/image04.png
+.. :align: center
+.. :border: 0
+.. :name: image04

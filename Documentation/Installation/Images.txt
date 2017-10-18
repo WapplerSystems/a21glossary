@@ -1,0 +1,6 @@
+﻿.. |image05|             image:: ../Images/Installation/image05.png
+   :width: 793
+   :height: 30
+.. :align: center
+.. :border: 0
+.. :name: image05
