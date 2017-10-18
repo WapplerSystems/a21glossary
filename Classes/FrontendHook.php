@@ -1,4 +1,6 @@
 <?php
+namespace A21Glossary\A21Glossary;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -23,6 +25,9 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+
 /**
  * a21glossary: all found words in content wich correspond with the glossary entries
  * will be enriched with special markup and/or with links to the glossary details page
@@ -30,7 +35,7 @@
  * @author    Sven Wappler <typo3YYYY@wappler.systems>
  * @author    Ronny Vorpahl <vorpahl@artplan21.de>
  */
-class tx_a21glossary
+class FrontendHook
 {
 
     protected $search = array();
@@ -47,14 +52,13 @@ class tx_a21glossary
      * objects) hook the alternative is the userfunc below
      *
      * @param string $content the full HTML content to output as object
-     * @param tslib_fe $pObj the parent object, in this case the TSFE global object
+     * @param TypoScriptFrontendController $pObj the parent object, in this case the TSFE global object
      * @return void
      */
-    public function processHook(&$content, $pObj)
+    public function processHook(&$content, TypoScriptFrontendController $pObj)
     {
-
         $conf = $GLOBALS['TSFE']->config['config']['tx_a21glossary.'];
-        $content['pObj']->content = $this->main($content['pObj']->content, $conf);
+        $pObj->content = $this->main($pObj->content, $conf);
     }
 
     /**
@@ -291,6 +295,7 @@ class tx_a21glossary
 
 
         // add predefined includes
+        /* TODO: Remove or improve */
         if ($conf['glossaryWHAT'] == 'ALL') {
             $this->searchMarkers[] = '<body>';
             $this->replaceMarkers[] = '<body><a21glossary>';
