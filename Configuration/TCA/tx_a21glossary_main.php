@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE')) {
 
 return array(
     'ctrl' => array(
-        'title' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main',
+        'title' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main',
         'label' => 'short',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -114,7 +114,7 @@ return array(
         ),
         'short' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xlf:tx_a21glossary_main.short',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xlf:tx_a21glossary_main.short',
             'config' => array(
                 'type' => 'input',
                 'size' => '30',
@@ -123,7 +123,7 @@ return array(
         ),
         'shortcut' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.shortcut',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shortcut',
             'config' => array(
                 'type' => 'input',
                 'size' => '30',
@@ -132,7 +132,7 @@ return array(
         ),
         'longversion' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.longversion',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.longversion',
             'config' => array(
                 'type' => 'input',
                 'size' => '48',
@@ -141,15 +141,15 @@ return array(
         ),
         'shorttype' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.shorttype',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype',
             'config' => array(
                 'type' => 'select',
                 'items' => array(
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.shorttype.I.-1', ''),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.shorttype.I.0', 'span'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.shorttype.I.1', 'dfn'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.shorttype.I.2', 'acronym'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.shorttype.I.3', 'abbr'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype.I.-1', ''),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype.I.0', 'span'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype.I.1', 'dfn'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype.I.2', 'acronym'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype.I.3', 'abbr'),
                 ),
                 'size' => 1,
                 'maxitems' => 1,
@@ -157,24 +157,24 @@ return array(
         ),
         'language' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language',
             'config' => array(
                 'type' => 'select',
                 'items' => array(
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.0', ''),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.1', 'en'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.2', 'fr'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.3', 'de'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.4', 'it'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.5', 'es'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.6', 'pt'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.7', 'ru'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.8', 'zh'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.9', 'ja'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.10', 'el'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.11', 'grc'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.12', 'la'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.language.I.13', 'he'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.0', ''),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.1', 'en'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.2', 'fr'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.3', 'de'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.4', 'it'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.5', 'es'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.6', 'pt'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.7', 'ru'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.8', 'zh'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.9', 'ja'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.10', 'el'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.11', 'grc'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.12', 'la'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.13', 'he'),
                 ),
                 'size' => 1,
                 'maxitems' => 1,
@@ -182,7 +182,7 @@ return array(
         ),
         'description' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.description',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.description',
             'config' => array(
                 'type' => 'text',
                 'cols' => '48',
@@ -191,7 +191,7 @@ return array(
         ),
         'link' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.link',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.link',
             'config' => array(
                 'type' => 'input',
                 'renderType' => 'inputLink',
@@ -201,7 +201,7 @@ return array(
         ),
         'exclude' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.exclude',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.exclude',
             'config' => array(
                 'type' => 'check',
             )
@@ -209,13 +209,13 @@ return array(
 
         'force_linking' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_linking',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_linking',
             'config' => array(
                 'type' => 'select',
                 'items' => array(
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_linking.I.0', '0'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_linking.I.1', '1'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_linking.I.2', '2'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_linking.I.0', '0'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_linking.I.1', '1'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_linking.I.2', '2'),
                 ),
                 'size' => 1,
                 'maxitems' => 1,
@@ -223,13 +223,13 @@ return array(
         ),
         'force_case' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_case',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_case',
             'config' => array(
                 'type' => 'select',
                 'items' => array(
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_case.I.0', '0'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_case.I.1', '1'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_case.I.2', '2'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_case.I.0', '0'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_case.I.1', '1'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_case.I.2', '2'),
                 ),
                 'size' => 1,
                 'maxitems' => 1,
@@ -237,13 +237,13 @@ return array(
         ),
         'force_preservecase' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_preservecase',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_preservecase',
             'config' => array(
                 'type' => 'select',
                 'items' => array(
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.0', '0'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.1', '1'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.2', '2'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.0', '0'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.1', '1'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.2', '2'),
                 ),
                 'size' => 1,
                 'maxitems' => 1,
@@ -251,12 +251,12 @@ return array(
         ),
         'force_regexp' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_regexp',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_regexp',
             'config' => array(
                 'type' => 'select',
                 'items' => array(
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_regexp.I.0', '0'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_regexp.I.1', '1'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_regexp.I.0', '0'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_regexp.I.1', '1'),
                 ),
                 'size' => 1,
                 'maxitems' => 1,
@@ -264,12 +264,12 @@ return array(
         ),
         'force_global' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_global',
+            'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_global',
             'config' => array(
                 'type' => 'select',
                 'items' => array(
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_global.I.0', '0'),
-                    array('LLL:EXT:a21glossary/locallang_db.xml:tx_a21glossary_main.force_global.I.1', '1'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_global.I.0', '0'),
+                    array('LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_global.I.1', '1'),
                 ),
                 'size' => 1,
                 'maxitems' => 1,
