@@ -1,4 +1,5 @@
 <?php
+
 namespace A21Glossary\A21Glossary;
 
 /***************************************************************
@@ -25,7 +26,8 @@ namespace A21Glossary\A21Glossary;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
@@ -91,7 +93,7 @@ class FrontendHook
     {
 
         /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $objectManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
 
         GLOBAL $TSFE;
 
@@ -108,7 +110,7 @@ class FrontendHook
         $typeList = strlen($typeList) ? $typeList : '0';
         $typeList = @explode(',', $typeList);
 
-        if (!in_array(intval(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('type')), $typeList)) {
+        if (!in_array(intval(GeneralUtility::_GP('type')), $typeList)) {
             return $content;
         }
 
@@ -118,9 +120,9 @@ class FrontendHook
         $renderCharset = $TSFE->renderCharset;
 
         // extract and escape get-vars
-        $this->piVars = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_a21glossary');
+        $this->piVars = GeneralUtility::_GP('tx_a21glossary');
         if (count($this->piVars)) {
-            \TYPO3\CMS\Core\Utility\GeneralUtility::addSlashesOnArray($this->piVars);
+            GeneralUtility::addSlashesOnArray($this->piVars);
         }
 
         // for the stats
@@ -132,7 +134,7 @@ class FrontendHook
             return $content;
         }
 
-        if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList($conf['excludePages'], $id)) {
+        if (GeneralUtility::inList($conf['excludePages'], $id)) {
             if ($conf['excludePages.'][$id]) {
                 // disable glossary only for certain glossary types
                 $conf['excludeTypes'] .= ',' . $conf['excludePages.'][$id];
@@ -148,7 +150,7 @@ class FrontendHook
             return $content;
         }
 
-        $cObj = $objectManager->get(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
+        $cObj = $objectManager->get(ContentObjectRenderer::class);
 
         // sort entries from z-a to replace more special words with the same beginnng first eg. aminoacid before amino
         krsort($items);
@@ -164,14 +166,14 @@ class FrontendHook
         // prepare items
         foreach ($items as $item) {
 
-            if (!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($conf['excludeTypes'], $item['shorttype'])) {
+            if (!GeneralUtility::inList($conf['excludeTypes'], $item['shorttype'])) {
 
                 $cObj->data = $item;
 
                 // set item language
                 if ($item['language'] && $pageLanguage != $item['language']) {
-                    $lang = (intval($conf['noLang']) ? '' : (' lang="' . $item['language'] . '"'))
-                        . (intval($conf['xmlLang']) ? (' xml:lang="' . $item['language'] . '"') : '');
+                    $lang = ((int)$conf['noLang'] ? '' : (' lang="' . $item['language'] . '"'))
+                        . ((int)$conf['xmlLang'] ? (' xml:lang="' . $item['language'] . '"') : '');
                 } else {
                     $lang = '';
                 }
@@ -189,12 +191,12 @@ class FrontendHook
                 if ($item['force_linking']) {
                     $generateLink = ($item['force_linking'] == 1) ? 1 : 0;
 
-                } elseif (\TYPO3\CMS\Core\Utility\GeneralUtility::inList($conf['linkToGlossary'],
+                } elseif (GeneralUtility::inList($conf['linkToGlossary'],
                         $item['shorttype']) && count($conf['typolink.'])) {
                     $generateLink = 1;
 
                     if (strlen($conf['linkOnlyIfNotEmpty'])) {
-                        $linkOnlyIfNotEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',',
+                        $linkOnlyIfNotEmpty = GeneralUtility::trimExplode(',',
                             $conf['linkOnlyIfNotEmpty']);
                         if (count($linkOnlyIfNotEmpty)) {
                             foreach ($linkOnlyIfNotEmpty as $checkField) {
@@ -213,9 +215,9 @@ class FrontendHook
                 // create and wrap replacement
                 // decide to preserve case of the displayed word in the content
                 if ($item['force_preservecase']) {
-                    $replacement = ($item['force_preservecase'] == 1 ? "$1" : $item['short']);
+                    $replacement = ($item['force_preservecase'] == 1 ? '$1' : $item['short']);
                 } else {
-                    $replacement = (intval($conf['preserveCase']) ? "$1" : $item['short']);
+                    $replacement = ((int)$conf['preserveCase'] ? '$1' : $item['short']);
                 }
 
                 $replacement = trim($cObj->stdWrap($replacement, $conf[$element . '.']));
@@ -296,7 +298,7 @@ class FrontendHook
 
         // add predefined includes
         /* TODO: Remove or improve */
-        if ($conf['glossaryWHAT'] == 'ALL') {
+        if ($conf['glossaryWHAT'] === 'ALL') {
             $this->searchMarkers[] = '<body>';
             $this->replaceMarkers[] = '<body><a21glossary>';
 
@@ -304,7 +306,7 @@ class FrontendHook
             $this->replaceMarkers[] = '</a21glossary></body>';
         }
 
-        if ($conf['glossaryWHAT'] == 'SEARCHTAGS' || intval($conf['includeSearchTags'])) {
+        if ($conf['glossaryWHAT'] === 'SEARCHTAGS' || (int)$conf['includeSearchTags']) {
             $this->searchMarkers[] = '<!--TYPO3SEARCH_begin-->';
             $this->replaceMarkers[] = '<!--TYPO3SEARCH_begin--><a21glossary>';
 
@@ -312,7 +314,7 @@ class FrontendHook
             $this->replaceMarkers[] = '</a21glossary><!--TYPO3SEARCH_end-->';
         }
 
-        if (strlen($conf['excludeTags'])) {
+        if ('' !== $conf['excludeTags']) {
 
             $excludeTags = explode(',', strtolower($conf['excludeTags']));
 
@@ -352,36 +354,35 @@ class FrontendHook
             $body = str_replace($this->searchMarkers, $this->replaceMarkers, $body);
 
             // replace local entries by recursive content splitting
-            $this->parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Html\HtmlParser::class);
+            $this->parseObj = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Html\HtmlParser::class);
             $body = $this->splitAndReplace($body);
 
             // final marker handling
             if ($conf['keepGlossaryMarkers']) {
 
                 $body = str_replace(
-                    array('<a21glossary>', '</a21glossary>', '<a21glossex>', '</a21glossex>'),
-                    array(
+                    ['<a21glossary>', '</a21glossary>', '<a21glossex>', '</a21glossex>'],
+                    [
                         '<!--A21GLOSSARY_begin-->',
                         '<!--A21GLOSSARY_end-->',
                         '<!--A21GLOSSEX_begin-->',
                         '<!--A21GLOSSEX_end-->'
-                    ),
+                    ],
                     $body
                 );
 
             } else {
 
                 $body = str_replace(
-                    array('<a21glossary>', '</a21glossary>', '<a21glossex>', '</a21glossex>'),
-                    array('', '', '', ''),
+                    ['<a21glossary>', '</a21glossary>', '<a21glossex>', '</a21glossex>'],
+                    ['', '', '', ''],
                     $body
                 );
             }
         }
 
         // undo text boundaries fix
-        $body = str_replace(' <', '<', $body);
-        $body = str_replace('> ', '>', $body);
+        $body = str_replace(array(' <', '> '), array('<', '>'), $body);
 
         return $head . $body;
 
@@ -403,8 +404,8 @@ class FrontendHook
         }
 
         // fetch glossary items
-        $pidList = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $pidList);
-        $languageUid = intval($GLOBALS['TSFE']->sys_language_uid);
+        $pidList = GeneralUtility::intExplode(',', $pidList);
+        $languageUid = (int)$GLOBALS['TSFE']->sys_language_uid;
 
         // manual ordering/grouping by pidlist
         foreach ($pidList as $pid) {
@@ -440,8 +441,8 @@ class FrontendHook
      *
      * @param array $search the search expressions
      * @param array $replace the replacement strings
-     * @param string $source
-     * @return the result count
+     * @param string $content
+     * @return string the result count
      */
     protected function replace($search = array(), $replace = array(), $content = '')
     {
@@ -455,10 +456,10 @@ class FrontendHook
     /**
      * splits the content recursivly into replaceable and unreplaceable parts
      *
-     * @param string $body
-     * @param boolean $glossaryOn
-     * @param boolean $tagsExcluded
-     * @param integer $depth
+     * @param $content
+     * @param int $glossaryOn
+     * @param int $tagsExcluded
+     * @param int $depth
      * @return string
      */
     protected function splitAndReplace($content, $glossaryOn = 0, $tagsExcluded = 0, $depth = 0)
@@ -503,7 +504,8 @@ class FrontendHook
             return $result;
 
             // content seems not splittable
-        } elseif ($glossaryOn) {
+        }
+        if ($glossaryOn) {
 
             // have you already passed this branch once?
             if ($tagsExcluded) {
@@ -512,26 +514,26 @@ class FrontendHook
                 // content is not splittable - replace it, nonsplittable part and glossary enabled
                 return $this->replace($this->search, $this->replace, $content);
 
-            } else {
-
-                // content maybe splittable if excludetags will be marked, so mark them and go on with recursion
-                return $this->splitAndReplace(
-                    preg_replace(
-                        $this->searchMarkers2,
-                        $this->replaceMarkers2,
-                        $content
-                    ),
-                    $glossaryOn,
-                    1,
-                    $depth + 1
-                );
             }
 
+            // content maybe splittable if excludetags will be marked, so mark them and go on with recursion
+            return $this->splitAndReplace(
+                preg_replace(
+                    $this->searchMarkers2,
+                    $this->replaceMarkers2,
+                    $content
+                ),
+                $glossaryOn,
+                1,
+                $depth + 1
+            );
+
+
             // dead end, nonsplittable part and glossary disabled
-        } else {
-            return $content;
         }
+
+        return $content;
+
     }
 }
 
-?>
