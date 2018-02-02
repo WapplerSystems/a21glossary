@@ -48,6 +48,7 @@ class FrontendHook
     protected $replaceMarkers = array();
     protected $searchMarkers2 = array();
     protected $replaceMarkers2 = array();
+    protected $piVars = array();
 
     /**
      * function call to apply to the totally rendered page (with non-caching
@@ -120,9 +121,11 @@ class FrontendHook
         $renderCharset = $TSFE->renderCharset;
 
         // extract and escape get-vars
-        $this->piVars = GeneralUtility::_GP('tx_a21glossary');
-        if (count($this->piVars)) {
-            GeneralUtility::addSlashesOnArray($this->piVars);
+        if (GeneralUtility::_GP('tx_a21glossary')) {
+            $this->piVars = GeneralUtility::_GP('tx_a21glossary');
+            if (count($this->piVars)) {
+                GeneralUtility::addSlashesOnArray($this->piVars);
+            }
         }
 
         // for the stats
