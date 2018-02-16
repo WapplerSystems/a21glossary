@@ -26,7 +26,9 @@ namespace A21Glossary\A21Glossary;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Html\HtmlParser;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
@@ -40,15 +42,24 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 class FrontendHook
 {
 
-    protected $search = array();
-    protected $searchGlobal = array();
-    protected $count = array();
-    protected $used = array();
-    protected $searchMarkers = array();
-    protected $replaceMarkers = array();
-    protected $searchMarkers2 = array();
-    protected $replaceMarkers2 = array();
-    protected $piVars = array();
+    protected $search = [];
+    protected $searchGlobal = [];
+    protected $count = [];
+    protected $used = [];
+    protected $searchMarkers = [];
+    protected $replaceMarkers = [];
+    protected $searchMarkers2 = [];
+    protected $replaceMarkers2 = [];
+    protected $piVars = [];
+    protected $depths = [];
+    protected $replaceGlobal = [];
+    protected $replace = [];
+
+    /** @var TypoScriptFrontendController */
+    protected $pObj = null;
+
+    /** @var HtmlParser */
+    protected $parseObj = null;
 
     /**
      * function call to apply to the totally rendered page (with non-caching
@@ -57,11 +68,15 @@ class FrontendHook
      * @param string $content the full HTML content to output as object
      * @param TypoScriptFrontendController $pObj the parent object, in this case the TSFE global object
      * @return void
+     * @throws \InvalidArgumentException
      */
     public function processHook(&$content, TypoScriptFrontendController $pObj)
     {
+        $this->pObj = $pObj;
         $conf = $GLOBALS['TSFE']->config['config']['tx_a21glossary.'];
         $pObj->content = $this->main($pObj->content, $conf);
+
+        $this->parseObj = GeneralUtility::makeInstance(HtmlParser::class);
     }
 
     /**
@@ -74,7 +89,6 @@ class FrontendHook
      */
     public function processUserFunc($content, $conf)
     {
-
         if (empty($conf)) {
             $conf = $GLOBALS['TSFE']->config['config']['tx_a21glossary.'];
         }
@@ -88,12 +102,11 @@ class FrontendHook
      * Twin-function to stripSlashesOnArray
      *
      * @param array $theArray Multidimensional input array, (REFERENCE!)
-     * @return array
      */
     public static function addSlashesOnArray(array &$theArray)
     {
         foreach ($theArray as &$value) {
-            if (is_array($value)) {
+            if (\is_array($value)) {
                 self::addSlashesOnArray($value);
             } else {
                 $value = addslashes($value);
@@ -111,12 +124,13 @@ class FrontendHook
      * @param string $content the content that should be parsed
      * @param array $conf the configuration for the parsing
      * @return string the modified content
+     * @throws \InvalidArgumentException
      */
     protected function main($content, array $conf = null)
     {
 
-        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        /** @var ObjectManager $objectManager */
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
 
         GLOBAL $TSFE;
 
@@ -124,28 +138,28 @@ class FrontendHook
 
         // merge with extconf, $conf overrules
         $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['a21glossary']);
-        if (count($extConf)) {
+        if (\count($extConf)) {
             $conf = array_merge($extConf, (array)$conf);
         }
 
         // return right now if the wrong page type was chosen
         $typeList = $TSFE->config['typeList'];
-        $typeList = strlen($typeList) ? $typeList : '0';
+        $typeList = ('' !== $typeList) ? $typeList : '0';
         $typeList = @explode(',', $typeList);
 
-        if (!in_array(intval(GeneralUtility::_GP('type')), $typeList)) {
+        if (!\in_array((int)GeneralUtility::_GP('type'), $typeList)) {
             return $content;
         }
 
         // load the whole configuration
         $id = $TSFE->id;
-        $pageLang = $TSFE->config['config']['language'] ? $TSFE->config['config']['language'] : $TSFE->config['config']['htmlTag_langKey'];
+        $pageLang = $TSFE->config['config']['language'] ?: $TSFE->config['config']['htmlTag_langKey'];
         $renderCharset = $TSFE->renderCharset;
 
         // extract and escape get-vars
         if (GeneralUtility::_GP('tx_a21glossary')) {
             $this->piVars = GeneralUtility::_GP('tx_a21glossary');
-            if (count($this->piVars)) {
+            if (\count($this->piVars)) {
                 self::addSlashesOnArray($this->piVars);
             }
         }
@@ -182,7 +196,7 @@ class FrontendHook
 
         // move entries with differing shortcut to end of array to prevent double replacement
         foreach ($items as $key => $item) {
-            if (strlen($item['shortcut']) && ($item['shortcut'] != $item['short'])) {
+            if ('' !== $item['shortcut'] && ($item['shortcut'] != $item['short'])) {
                 unset($items[$key]);
                 $items[$key] = $item;
             }
@@ -196,7 +210,7 @@ class FrontendHook
                 $cObj->data = $item;
 
                 // set item language
-                if ($item['language'] && $pageLanguage != $item['language']) {
+                if ($item['language'] && $pageLang != $item['language']) {
                     $lang = ((int)$conf['noLang'] ? '' : (' lang="' . $item['language'] . '"'))
                         . ((int)$conf['xmlLang'] ? (' xml:lang="' . $item['language'] . '"') : '');
                 } else {
@@ -214,16 +228,15 @@ class FrontendHook
 
                 // decide replacement linking
                 if ($item['force_linking']) {
-                    $generateLink = ($item['force_linking'] == 1) ? 1 : 0;
+                    $generateLink = ((int)$item['force_linking'] === 1) ? 1 : 0;
 
-                } elseif (GeneralUtility::inList($conf['linkToGlossary'],
-                        $item['shorttype']) && count($conf['typolink.'])) {
+                } elseif (\count($conf['typolink.']) && GeneralUtility::inList($conf['linkToGlossary'],
+                        $item['shorttype'])) {
                     $generateLink = 1;
 
-                    if (strlen($conf['linkOnlyIfNotEmpty'])) {
-                        $linkOnlyIfNotEmpty = GeneralUtility::trimExplode(',',
-                            $conf['linkOnlyIfNotEmpty']);
-                        if (count($linkOnlyIfNotEmpty)) {
+                    if ('' !== $conf['linkOnlyIfNotEmpty']) {
+                        $linkOnlyIfNotEmpty = GeneralUtility::trimExplode(',', $conf['linkOnlyIfNotEmpty']);
+                        if (\count($linkOnlyIfNotEmpty)) {
                             foreach ($linkOnlyIfNotEmpty as $checkField) {
                                 if ($item[$checkField] == '') {
                                     $generateLink = 0;
@@ -240,7 +253,7 @@ class FrontendHook
                 // create and wrap replacement
                 // decide to preserve case of the displayed word in the content
                 if ($item['force_preservecase']) {
-                    $replacement = ($item['force_preservecase'] == 1 ? '$1' : $item['short']);
+                    $replacement = ((int)$item['force_preservecase'] === 1 ? '$1' : $item['short']);
                 } else {
                     $replacement = ((int)$conf['preserveCase'] ? '$1' : $item['short']);
                 }
@@ -258,31 +271,24 @@ class FrontendHook
                 // set needle modifiers
                 $PCREmodifiers = $conf['patternModifiers'];
                 if ($item['force_case']) {
-                    $caseSensitive = ($item['force_case'] == 1) ? 'i' : '';
+                    $caseSensitive = ((int)$item['force_case'] === 1) ? 'i' : '';
                 } else {
                     $caseSensitive = $conf['caseSensitive'] ? '' : 'i';
                 }
 
                 // wrap needle regexp
-                switch ($item['force_regexp']) {
+                if ($item['force_regexp'] == 1) {
+                    $regExp = '(' . $needle . ')(?![^<>]*?[>])';
+                } else {
+                    if ($generateLink) {
+                        // TODO get nested link recognition working,
+                        // feel free to contact us (info@artplan21.de)
+                        // if you know how to do better than this
+                        $regExp = '(?!<.*?)(?<=\s|[[:punct:]])(' . $needle . ')(?=\s|[[:punct:]])(?![^<>]*?' . '>)';
 
-                    // word part
-                    case 1:
-                        $regExp = '(' . $needle . ')(?![^<>]*?[>])';
-                        break;
-
-                    // single word
-                    default:
-                        if ($generateLink) {
-                            // TODO get nested link recognition working,
-                            // feel free to contact us (info@artplan21.de)
-                            // if you know how to do better than this
-                            $regExp = '(?!<.*?)(?<=\s|[[:punct:]])(' . $needle . ')(?=\s|[[:punct:]])(?![^<>]*?' . '>)';
-
-                        } else {
-                            $regExp = '(?!<.*?)(?<=\s|[[:punct:]])(' . $needle . ')(?=\s|[[:punct:]])(?![^<>]*?>)';
-                        }
-                        break;
+                    } else {
+                        $regExp = '(?!<.*?)(?<=\s|[[:punct:]])(' . $needle . ')(?=\s|[[:punct:]])(?![^<>]*?>)';
+                    }
                 }
                 $regExp = '/' . $regExp . '/' . $caseSensitive . $PCREmodifiers;
 
@@ -303,8 +309,7 @@ class FrontendHook
         $body = substr($content, strpos($content, '<body'));
 
         // text boundaries fix
-        $body = str_replace('<', ' <', $body);
-        $body = str_replace('>', '> ', $body);
+        $body = str_replace(array('<', '>'), array(' <', '> '), $body);
 
         // prepare include-exclude parts
         $this->searchMarkers = array(
@@ -364,8 +369,8 @@ class FrontendHook
 
 
         // count entries
-        $this->count['global'] = count($this->searchGlobal);
-        $this->count['local'] = count($this->search);
+        $this->count['global'] = \count($this->searchGlobal);
+        $this->count['local'] = \count($this->search);
 
         // replace global entries
         if ($this->count['global']) {
@@ -379,7 +384,6 @@ class FrontendHook
             $body = str_replace($this->searchMarkers, $this->replaceMarkers, $body);
 
             // replace local entries by recursive content splitting
-            $this->parseObj = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Html\HtmlParser::class);
             $body = $this->splitAndReplace($body);
 
             // final marker handling
@@ -400,7 +404,7 @@ class FrontendHook
 
                 $body = str_replace(
                     ['<a21glossary>', '</a21glossary>', '<a21glossex>', '</a21glossex>'],
-                    ['', '', '', ''],
+                    '',
                     $body
                 );
             }
@@ -410,7 +414,6 @@ class FrontendHook
         $body = str_replace(array(' <', '> '), array('<', '>'), $body);
 
         return $head . $body;
-
     }
 
 
@@ -420,43 +423,43 @@ class FrontendHook
      * @param string $pidList idlists set by configuraion
      * @return array glossary items
      */
-    protected function fetchGlossaryItems($pidList)
+    protected function fetchGlossaryItems($pidList): array
     {
 
         // -1 means: ignore pids
-        if (!strlen(trim($pidList))) {
-            $pidList = -1;
+        if ('' === trim($pidList)) {
+            $pidList = '-1';
         }
 
         // fetch glossary items
-        $pidList = GeneralUtility::intExplode(',', $pidList);
+        $aPidList = GeneralUtility::intExplode(',', $pidList);
         $languageUid = (int)$GLOBALS['TSFE']->sys_language_uid;
 
         // manual ordering/grouping by pidlist
-        foreach ($pidList as $pid) {
+        foreach ($aPidList as $pid) {
 
             $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
-                '*',                        // SELECT
-                'tx_a21glossary_main',        // FROM
-                '1=1' .                        // WHERE
-                ($pid != -1 ? ' AND pid=' . $pid : '') .
+                '*',
+                'tx_a21glossary_main',
+                '1=1' .
+                ($pid !== -1 ? ' AND pid=' . $pid : '') .
                 ' AND tx_a21glossary_main.sys_language_uid IN (-1, ' . $languageUid . ')' .
                 $GLOBALS['TSFE']->sys_page->enableFields('tx_a21glossary_main'),
-                '',                            // GROUP BY
-                'short,uid'                    // ORDER BY
+                '',
+                'short,uid'
             );
 
-            if (count($rows)) {
+            if (\count($rows)) {
                 foreach ($rows as $row) {
                     $row['shortcut'] = trim($row['shortcut']);
                     $row['short'] = trim($row['short']);
-                    $items[($row['shortcut'] ? $row['shortcut'] : $row['short'])] = $row;
+                    $items[$row['shortcut'] ? $row['shortcut'] : $row['short']] = $row;
                 }
-                $this->count['found'] += count($rows);
+                $this->count['found'] += \count($rows);
             }
         }
 
-        $this->count['used'] = count($items);
+        $this->count['used'] = \count($items);
         return $items;
     }
 
@@ -469,7 +472,7 @@ class FrontendHook
      * @param string $content
      * @return string the result count
      */
-    protected function replace($search = array(), $replace = array(), $content = '')
+    protected function replace($search = [], $replace = [], $content = '')
     {
 
         $content = preg_replace($search, $replace, $content, -1, $counter);
@@ -487,7 +490,7 @@ class FrontendHook
      * @param int $depth
      * @return string
      */
-    protected function splitAndReplace($content, $glossaryOn = 0, $tagsExcluded = 0, $depth = 0)
+    protected function splitAndReplace($content, $glossaryOn = 0, $tagsExcluded = 0, $depth = 0): string
     {
 
         // infinite failsafe
@@ -500,21 +503,21 @@ class FrontendHook
         $contentSplit = $this->parseObj->splitIntoBlock('a21glossary,a21glossex', $content);
 
         // content is splittable
-        if (count($contentSplit) > 1) {
+        if (\count($contentSplit) > 1) {
 
             $result = '';
             foreach ($contentSplit as $contentSplitValue) {
 
                 // replaceable part
-                if ((substr($contentSplitValue, 0, 13) == '<a21glossary>') &&
-                    (substr($contentSplitValue, -14) == '</a21glossary>')) {
+                if ((0 === strpos($contentSplitValue, '<a21glossary>')) &&
+                    (substr($contentSplitValue, -14) === '</a21glossary>')) {
 
                     $result .= '<a21glossary>' . $this->splitAndReplace(substr($contentSplitValue, 13, -14), 1,
                             $tagsExcluded, $depth + 1) . '</a21glossary>';
 
                     // excluded part
-                } elseif ((substr($contentSplitValue, 0, 12) == '<a21glossex>') &&
-                    (substr($contentSplitValue, -13) == '</a21glossex>')) {
+                } elseif ((0 === strpos($contentSplitValue, '<a21glossex>')) &&
+                    (substr($contentSplitValue, -13) === '</a21glossex>')) {
 
                     // change of rules: once excluded, nothing inside may be included again.
                     // $result.= '<a21glossex>'.$this->splitAndReplace(substr($contentSplitValue,12,-13),0,$depth+1).'</a21glossex>';
@@ -553,7 +556,6 @@ class FrontendHook
                 $depth + 1
             );
 
-
             // dead end, nonsplittable part and glossary disabled
         }
 
@@ -561,4 +563,3 @@ class FrontendHook
 
     }
 }
-
