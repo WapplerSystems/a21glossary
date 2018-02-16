@@ -127,11 +127,12 @@ plugin.tx_a21glossary {
 		}
 		orderBy = {$a21glossary.orderBy}
 		where = exclude=0
-		andWhere {
+		where.append = TEXT
+		where.append {
 			data = GP:tx_a21glossary|uid
 			intval = 1
 			required = 1
-			wrap = uid=|
+			noTrimWrap = | AND uid=||
 		}
 		languageField = sys_language_uid
 	}
