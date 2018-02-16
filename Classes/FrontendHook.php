@@ -58,9 +58,6 @@ class FrontendHook
     /** @var TypoScriptFrontendController */
     protected $pObj = null;
 
-    /** @var HtmlParser */
-    protected $parseObj = null;
-
     /**
      * function call to apply to the totally rendered page (with non-caching
      * objects) hook the alternative is the userfunc below
@@ -73,10 +70,9 @@ class FrontendHook
     public function processHook(&$content, TypoScriptFrontendController $pObj)
     {
         $this->pObj = $pObj;
+
         $conf = $GLOBALS['TSFE']->config['config']['tx_a21glossary.'];
         $pObj->content = $this->main($pObj->content, $conf);
-
-        $this->parseObj = GeneralUtility::makeInstance(HtmlParser::class);
     }
 
     /**
@@ -487,6 +483,7 @@ class FrontendHook
      * @param int $tagsExcluded
      * @param int $depth
      * @return string
+     * @throws \InvalidArgumentException
      */
     protected function splitAndReplace($content, $glossaryOn = 0, $tagsExcluded = 0, $depth = 0): string
     {
@@ -498,7 +495,7 @@ class FrontendHook
         }
 
         // split
-        $contentSplit = $this->parseObj->splitIntoBlock('a21glossary,a21glossex', $content);
+        $contentSplit = GeneralUtility::makeInstance(HtmlParser::class)->splitIntoBlock('a21glossary,a21glossex', $content);
 
         // content is splittable
         if (\count($contentSplit) > 1) {
