@@ -134,8 +134,6 @@ class FrontendHook
 
         GLOBAL $TSFE;
 
-        $this->time_start = microtime(true);
-
         // merge with extconf, $conf overrules
         $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['a21glossary']);
         if (\count($extConf)) {
