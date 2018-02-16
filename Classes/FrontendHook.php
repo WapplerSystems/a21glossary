@@ -81,6 +81,28 @@ class FrontendHook
         return $this->main($content, $conf);
     }
 
+    /**
+     * AddSlash array
+     * This function traverses a multidimensional array and adds slashes to the values.
+     * NOTE that the input array is and argument by reference.!!
+     * Twin-function to stripSlashesOnArray
+     *
+     * @param array $theArray Multidimensional input array, (REFERENCE!)
+     * @return array
+     */
+    public static function addSlashesOnArray(array &$theArray)
+    {
+        foreach ($theArray as &$value) {
+            if (is_array($value)) {
+                self::addSlashesOnArray($value);
+            } else {
+                $value = addslashes($value);
+            }
+        }
+        unset($value);
+        reset($theArray);
+    }
+
 
     /**
      * this is the actual main function that replaces the glossary
@@ -124,7 +146,7 @@ class FrontendHook
         if (GeneralUtility::_GP('tx_a21glossary')) {
             $this->piVars = GeneralUtility::_GP('tx_a21glossary');
             if (count($this->piVars)) {
-                GeneralUtility::addSlashesOnArray($this->piVars);
+                self::addSlashesOnArray($this->piVars);
             }
         }
 
