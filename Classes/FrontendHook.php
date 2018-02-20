@@ -419,7 +419,7 @@ class FrontendHook
      */
     protected function fetchGlossaryItems($pidList): array
     {
-
+        $items = array();
         // -1 means: ignore pids
         if ('' === trim($pidList)) {
             $pidList = '-1';
