@@ -9,6 +9,11 @@
             "SveWap\\A21glossary\\": "Classes"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "8.x-dev"
+        }
+    },
     "require": {
         "typo3/cms-core": "^8.7.0 || ^9.5.0"
     },
