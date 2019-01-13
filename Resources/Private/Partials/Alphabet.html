@@ -1,0 +1,6 @@
+<div class="navbar">
+    <f:for each="{index}" as="char">
+        <f:link.action action="index" arguments="{char: char.char}" class="navbar__char{f:if(condition: '{char.char} == {currentChar}', then: ' navbar__char--active')}" rel="nofollow">{char.char}</f:link.action>
+    </f:for>
+    <f:link.page rel="nofollow"><f:translate id="all_chars" /></f:link.page>
+</div>

@@ -1,0 +1,82 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{configuration.insertAbove}">
+    <f:render section="paginator" arguments="{pagination: pagination,configuration:configuration}"/>
+</f:if>
+
+<f:renderChildren arguments="{contentArguments}"/>
+
+<f:if condition="{configuration.insertBelow}">
+    <f:render section="paginator" arguments="{pagination: pagination,configuration:configuration}"/>
+</f:if>
+
+<f:section name="paginator">
+    <f:if condition="{pagination.numberOfPages} > 1">
+        <nav class="pagination">
+            <p>
+                <f:translate key="paginate_overall" arguments="{0:pagination.current,1:pagination.numberOfPages}"/>
+            </p>
+            <ul class="pagination__list">
+                <f:if condition="{pagination.previousPage}">
+                    <li class="pagination__item">
+                        <f:if condition="{pagination.previousPage} > 1">
+                            <f:then>
+                                <f:widget.link useCacheHash="1" addQueryStringMethod="GET" arguments="{currentPage: pagination.previousPage}" class="pagination__link">
+                                    <f:translate key="paginate_previous" extensionName="A21glossary"/>
+                                </f:widget.link>
+                            </f:then>
+                            <f:else>
+                                <f:widget.link addQueryStringMethod="GET" class="pagination__link">
+                                    <f:translate key="paginate_previous" extensionName="A21glossary"/>
+                                </f:widget.link>
+                            </f:else>
+                        </f:if>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.displayRangeStart} > 1">
+                    <li class="pagination__item">
+                        <f:widget.link addQueryStringMethod="GET" >1</f:widget.link>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.hasLessPages}">
+                    <li class="pagination__item">…</li>
+                </f:if>
+                <f:for each="{pagination.pages}" as="page">
+                    <f:if condition="{page.isCurrent}">
+                        <f:then>
+                            <li class="pagination__item pagination__item--current">{page.number}</li>
+                        </f:then>
+                        <f:else>
+                            <li class="pagination__item">
+                                <f:if condition="{page.number} > 1">
+                                    <f:then>
+                                        <f:widget.link useCacheHash="1" addQueryStringMethod="GET" arguments="{currentPage: page.number}" class="pagination__link">{page.number}</f:widget.link>
+                                    </f:then>
+                                    <f:else>
+                                        <f:widget.link addQueryStringMethod="GET" class="pagination__link">{page.number}</f:widget.link>
+                                    </f:else>
+                                </f:if>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+                <f:if condition="{pagination.hasMorePages}">
+                    <li class="pagination__item">…</li>
+                </f:if>
+                <f:if condition="{pagination.displayRangeEnd} < {pagination.numberOfPages}">
+                    <li class="pagination__item">
+                        <f:widget.link useCacheHash="1" addQueryStringMethod="GET" arguments="{currentPage: pagination.numberOfPages}" class="pagination__link">{pagination.numberOfPages}</f:widget.link>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.nextPage}">
+                    <li class="pagination__item">
+                        <f:widget.link useCacheHash="1" addQueryStringMethod="GET" arguments="{currentPage: pagination.nextPage}" class="pagination__link">
+                            <f:translate key="paginate_next" extensionName="A21glossary"/>
+                        </f:widget.link>
+                    </li>
+                </f:if>
+            </ul>
+        </nav>
+    </f:if>
+</f:section>
+</html>

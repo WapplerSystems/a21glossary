@@ -51,6 +51,11 @@
 			<label index="tx_a21glossary_main.force_global">Replacement</label>
 			<label index="tx_a21glossary_main.force_global.I.0">Default</label>
 			<label index="tx_a21glossary_main.force_global.I.1">Override: Force In Whole Global Content</label>
+
+			<label index="tx_a21glossary_main.tabs.advanced">Advanced</label>
+			<label index="tx_a21glossary_main.tabs.settings">Settings</label>
+
+			<label index="plugins.pi1.title">Glossary overview</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="tx_a21glossary_main">Glossar</label>
@@ -98,6 +103,11 @@
 			<label index="tx_a21glossary_main.force_global">ersetzen In </label>
 			<label index="tx_a21glossary_main.force_global.I.0">Wie voreingestellt</label>
 			<label index="tx_a21glossary_main.force_global.I.1">Erzwinge Im Gesamten Content (Nicht Empfohlen)</label>
+
+			<label index="tx_a21glossary_main.tabs.advanced">Erweitert</label>
+			<label index="tx_a21glossary_main.tabs.settings">Einstellungen</label>
+
+			<label index="plugins.pi1.title">Glossarübersicht</label>
 		</languageKey>
 	</data>
 </T3locallang>
