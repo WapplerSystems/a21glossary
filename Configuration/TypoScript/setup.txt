@@ -1,3 +1,14 @@
+config.tx_extbase {
+	persistence {
+		classes {
+			SveWap\A21glossary\Domain\Model\Glossary {
+				mapping {
+					tableName = tx_a21glossary_main
+				}
+			}
+		}
+	}
+}
 
 # global a21glossary configuration - Accessible Output (Recommended)
 config.tx_a21glossary {
@@ -115,55 +126,30 @@ tx_a21glossary_main {
 }
 
 # configuration of the glossary list plugin
-plugin.tx_a21glossary = CONTENT
 plugin.tx_a21glossary {
-
-	table = tx_a21glossary_main
-	select {
-		pidInList = {$a21glossary.storagePage}
-		pidInList.override {
-			field = pages
-			if.isTrue.field = pages
+	view {
+		templateRootPaths {
+			0 = EXT:a21glossary/Resources/Private/Templates/
+			10 =
 		}
-		orderBy = {$a21glossary.orderBy}
-		where = exclude=0
-		where.append = TEXT
-		where.append {
-			data = GP:tx_a21glossary|uid
-			intval = 1
-			required = 1
-			noTrimWrap = | AND uid=||
+		partialRootPaths {
+			0 = EXT:a21glossary/Resources/Private/Partials/
+			10 =
 		}
-		languageField = sys_language_uid
+		layoutRootPaths {
+			0 = EXT:a21glossary/Resources/Private/Layouts/
+			10 =
+		}
+		widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPaths.10 = EXT:a21glossary/Resources/Private/Templates/
 	}
-	stdWrap {
-		wrap = {$a21glossary.allWrap}
-		append = COA
-		append {
-			stdWrap.if.isTrue.data = GP:tx_a21glossary|uid
-			10 = TEXT
-			10.wrap = {$a21glossary.backWrap}
-			10.value = <a href="javascript:history.back();">{$a21glossary.back}</a>
-			20 = TEXT
-			20.value = {$a21glossary.allEntries}
-			20.wrap = {$a21glossary.allEntriesWrap}
-			20.typolink.parameter.data = TSFE:id
+
+	settings {
+		paginate {
+			itemsPerPage = 20
+			insertAbove = 0
+			insertBelow = 1
+			maximumNumberOfLinks = 9
 		}
 	}
 
-	# Add CSS configuration
-	_CSS_DEFAULT_STYLE (
-		acronym, dfn, abbr, span.abbr { border-bottom: 1px dotted black; cursor: help; }
-		.tx-glossary-list dt { font-weight: bold; margin: 0 0 3px 0; font-style: normal; }
-		.tx-glossary-list dd { margin: 0 0 15px 20px; }
-		.tx-glossary-list dd.tx-glossary-abstract { margin: 0; padding: 0; }
-		.tx-glossary-list dd.tx-glossary-description { margin: 0; padding: 0; }
-	)
 }
-
-tt_content.list.20.a21glossary < plugin.tx_a21glossary
-
-# EXAMPLE HOW THE GLOSSARY CAN BE USED IF NOT GLOBALLY ENABLED
-#includeLibs.a21glossary = EXT:a21glossary/class.tx_a21glossary.php
-#page.stdWrap.postUserFunc < .config.tx_a21glossary
-#page.stdWrap.postUserFunc = tx_a21glossary->processUserFunc

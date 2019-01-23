@@ -9,11 +9,31 @@
 			<label index="label_acronym">acronym of</label>
 			<label index="abbreviation_acronym">abbreviation of</label>
 			<label index="definition_acronym">definition</label>
+
+			<label index="all_chars">Entire glossary</label>
+			<label index="search">Search for term:</label>
+			<label index="search_button">Search</label>
+			<label index="type.span">Item for:</label>
+			<label index="type.dfn">Definition:</label>
+			<label index="type.acronym">Acronym:</label>
+			<label index="type.abbr">Abbreviation:</label>
+			<label index="paginate_previous">Previous</label>
+			<label index="paginate_next">Previous</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="label_acronym">Akronym von</label>
 			<label index="label_abbreviation">Abkürzung von</label>
 			<label index="label_definition">Definition</label>
+
+			<label index="all_chars">Gesamtes Glossar</label>
+			<label index="search">Begriff suchen:</label>
+			<label index="search_button">Suchen</label>
+			<label index="type.span">Begriff für:</label>
+			<label index="type.dfn">Definition:</label>
+			<label index="type.acronym">Akronym für:</label>
+			<label index="type.abbr">Abkürzung für:</label>
+			<label index="paginate_previous">Vorherige</label>
+			<label index="paginate_next">Nächste</label>
 		</languageKey>
 	</data>
 </T3locallang>

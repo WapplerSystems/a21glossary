@@ -1,6 +1,6 @@
 <?php
 
-namespace A21Glossary\A21Glossary;
+namespace SveWap\A21glossary\Hooks;
 
 /***************************************************************
  *  Copyright notice
@@ -26,6 +26,7 @@ namespace A21Glossary\A21Glossary;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Html\HtmlParser;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -417,7 +418,7 @@ class FrontendHook
      * @param string $pidList idlists set by configuraion
      * @return array glossary items
      */
-    protected function fetchGlossaryItems($pidList): array
+    protected function fetchGlossaryItems($pidList)
     {
         $items = array();
         // -1 means: ignore pids
@@ -429,27 +430,23 @@ class FrontendHook
         $aPidList = GeneralUtility::intExplode(',', $pidList);
         $languageUid = (int)$GLOBALS['TSFE']->sys_language_uid;
 
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_a21glossary_main');
+
         // manual ordering/grouping by pidlist
         foreach ($aPidList as $pid) {
+            $query = $connection->createQueryBuilder()->select('*')->from('tx_a21glossary_main');
+            $query->where(
+                $query->expr()->eq('pid', $query->createNamedParameter($pid, \PDO::PARAM_INT)),
+                $query->expr()->in('sys_language_uid', [-1, $languageUid])
+            )->orderBy('short', 'asc');
 
-            $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
-                '*',
-                'tx_a21glossary_main',
-                '1=1' .
-                ($pid !== -1 ? ' AND pid=' . $pid : '') .
-                ' AND tx_a21glossary_main.sys_language_uid IN (-1, ' . $languageUid . ')' .
-                $GLOBALS['TSFE']->sys_page->enableFields('tx_a21glossary_main'),
-                '',
-                'short,uid'
-            );
-
-            if (\count($rows)) {
-                foreach ($rows as $row) {
+            if ($statement = $query->execute()) {
+                foreach ($statement as $row) {
                     $row['shortcut'] = trim($row['shortcut']);
                     $row['short'] = trim($row['short']);
                     $items[$row['shortcut'] ? $row['shortcut'] : $row['short']] = $row;
                 }
-                $this->count['found'] += \count($rows);
+                $this->count['found'] += $statement->rowCount();
             }
         }
 

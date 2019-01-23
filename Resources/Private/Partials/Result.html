@@ -1,0 +1,18 @@
+<div class="result">
+    <dl class="glossary">
+        <f:widget.paginate objects="{glossaryItems}" as="paginatedItems" configuration="{settings.paginate}">
+            <f:for each="{paginatedItems}" as="glossaryItem">
+                <dt><a name="glossary-{glossaryItem.uid}"></a>{glossaryItem.short}</dt>
+                <dd>
+                    <f:if condition="{glossayItem.shorttype}">
+                        <span class="type" data-type="{glossaryItem.shorttype}"><f:translate id="type.{glossaryItem.shorttype}" /></span>
+                    </f:if>
+                    <f:if condition="{glossaryItem.longversion}">
+                        <strong>{glossaryItem.longversion}</strong>
+                    </f:if>
+                    {glossaryItem.description -> f:format.html()}
+                </dd>
+            </f:for>
+        </f:widget.paginate>
+    </dl>
+</div>

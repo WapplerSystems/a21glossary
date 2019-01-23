@@ -4,8 +4,18 @@
     "type": "typo3-cms-extension",
     "homepage": "http://wappler.systems",
     "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "SveWap\\A21glossary\\": "Classes"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "9.x-dev"
+        }
+    },
     "require": {
-        "typo3/cms-core": ">=8.7.0, <8.7.99"
+        "typo3/cms-core": "^8.7.0 || ^9.5.0"
     },
     "replace": {
         "svewap/a21glossary": "self.version"
