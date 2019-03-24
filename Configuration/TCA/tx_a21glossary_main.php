@@ -37,6 +37,12 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'special' => 'languages',
+                'items' => [
+                    [
+                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                        -1,
+                    ],
+                ]
             ]
         ],
         'l18n_parent' => [
