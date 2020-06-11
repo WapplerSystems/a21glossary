@@ -1,7 +1,7 @@
 config.tx_extbase {
 	persistence {
 		classes {
-			SveWap\A21glossary\Domain\Model\Glossary {
+			WapplerSystems\A21glossary\Domain\Model\Glossary {
 				mapping {
 					tableName = tx_a21glossary_main
 				}

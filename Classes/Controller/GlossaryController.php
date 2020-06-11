@@ -1,6 +1,6 @@
 <?php
 
-namespace SveWap\A21glossary\Controller;
+namespace WapplerSystems\A21glossary\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
@@ -8,7 +8,7 @@ use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 class GlossaryController extends ActionController
 {
     /**
-     * @var \SveWap\A21glossary\Domain\Repository\GlossaryRepository
+     * @var \WapplerSystems\A21glossary\Domain\Repository\EntryRepository
      * @inject
      */
     protected $glossaryRepository;

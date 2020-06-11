@@ -1,8 +1,8 @@
 <?php
 
-namespace SveWap\A21glossary\Domain\Repository;
+namespace WapplerSystems\A21glossary\Domain\Repository;
 
-use SveWap\A21glossary\Domain\Model\Glossary;
+use WapplerSystems\A21glossary\Domain\Model\Entry;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser;
@@ -10,7 +10,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
-class GlossaryRepository extends Repository
+class EntryRepository extends Repository
 {
     protected $defaultOrderings = [
         'short' => QueryInterface::ORDER_ASCENDING
@@ -37,7 +37,7 @@ class GlossaryRepository extends Repository
     /**
      * @param string $char
      *
-     * @return Glossary[]|QueryResultInterface
+     * @return Entry[]|QueryResultInterface
      * @throws InvalidQueryException
      */
     public function findAllWithChar(string $char)
@@ -53,7 +53,7 @@ class GlossaryRepository extends Repository
     /**
      * @param string $q
      *
-     * @return Glossary[]|QueryResultInterface
+     * @return Entry[]|QueryResultInterface
      * @throws InvalidQueryException
      */
     public function findAllWithQuery(string $q)

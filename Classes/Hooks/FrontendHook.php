@@ -1,6 +1,6 @@
 <?php
 
-namespace SveWap\A21glossary\Hooks;
+namespace WapplerSystems\A21glossary\Hooks;
 
 /***************************************************************
  *  Copyright notice

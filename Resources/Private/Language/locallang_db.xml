@@ -6,7 +6,7 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tx_a21glossary_main">Glossary</label>
+			<label index="tx_a21glossary_main">Glossary entry</label>
 			<label index="tx_a21glossary_main.short">Short form</label>
 			<label index="tx_a21glossary_main.shortcut">Alternative shortcut</label>
 			<label index="tx_a21glossary_main.longversion">Long text</label>
@@ -58,7 +58,7 @@
 			<label index="plugins.pi1.title">Glossary overview</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="tx_a21glossary_main">Glossar</label>
+			<label index="tx_a21glossary_main">Glossar Eintrag</label>
 			<label index="tx_a21glossary_main.short">Kurzform</label>
 			<label index="tx_a21glossary_main.shortcut">Alternatives Kürzel</label>
 			<label index="tx_a21glossary_main.longversion">Langtext</label>

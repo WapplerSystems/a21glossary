@@ -17,7 +17,7 @@ https://extensions.typo3.org/extension/a21glossary/
 
 The source code and development snapshots can be found at GitHub:
 
-https://github.com/svewap/a21glossary
+https://github.com/WapplerSystems/a21glossary
 
 Please contact me for reporting problems with the extension or for
 submitting feature requests.

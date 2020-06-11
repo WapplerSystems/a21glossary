@@ -1,10 +1,10 @@
 <?php
 
-namespace SveWap\A21glossary\Domain\Model;
+namespace WapplerSystems\A21glossary\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-class Glossary extends AbstractEntity
+class Entry extends AbstractEntity
 {
     /**
      * @var string
