@@ -1,14 +1,14 @@
 <?php
 
-namespace SveWap\A21glossary\Domain\Repository;
+namespace WapplerSystems\A21glossary\Domain\Repository;
 
-use SveWap\A21glossary\Domain\Model\Glossary;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
+use WapplerSystems\A21glossary\Domain\Model\Glossary;
 
 class GlossaryRepository extends Repository
 {

@@ -1,0 +1,158 @@
+config.tx_extbase {
+    persistence.classes {
+        WapplerSystems\A21glossary\Domain\Model\Glossary {
+            mapping {
+                tableName = tx_a21glossary_main
+            }
+        }
+    }
+}
+
+plugin.tx_a21glossary {
+
+    view {
+
+        templateRootPaths {
+            0 = EXT:a21glossary/Resources/Private/Templates/
+            1 = {$plugin.tx_a21glossary.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:a21glossary/Resources/Private/Partials/
+            1 = {$plugin.tx_a21glossary.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:a21glossary/Resources/Private/Layouts/
+            1 = {$plugin.tx_a21glossary.view.layoutRootPath}
+        }
+
+        widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPaths.10 = EXT:a21glossary/Resources/Private/Templates/
+
+    }
+
+    settings {
+
+
+        caseSensitive = {$plugin.tx_a21glossary.settings.caseSensitive}
+        preserveCase = {$plugin.tx_a21glossary.settings.preserveCase}
+        patternModifiers = {$plugin.tx_a21glossary.settings.patternModifiers}
+
+        excludePages = {$plugin.tx_a21glossary.settings.glossaryPage}
+
+        # EXAMPLE exclude only some glossary types instead of all
+        #excludePages.{$somePageID} = acronym,abbr,dfn
+
+        pidList = {$plugin.tx_a21glossary.settings.storagePage}
+        typeList = {$plugin.tx_a21glossary.settings.typeList}
+
+        linkToGlossary = {$plugin.tx_a21glossary.settings.linkToGlossary}
+        linkOnlyIfNotEmpty = {$plugin.tx_a21glossary.settings.linkOnlyIfNotEmpty}
+
+        excludeTags = {$plugin.tx_a21glossary.settings.excludeTags}
+
+        workIn = {$plugin.tx_a21glossary.settings.workIn}
+        markers = {$plugin.tx_a21glossary.settings.markers}
+
+        keepGlossaryMarkers = {$plugin.tx_a21glossary.settings.keepGlossaryMarkers}
+
+        typolink {
+            parameter = {$plugin.tx_a21glossary.settings.glossaryPage}
+            parameter.override.field = link
+            additionalParams >
+            additionalParams.stdWrap.cObject = COA
+            additionalParams.stdWrap.cObject {
+                10 = TEXT
+                10.dataWrap = &tx_a21glossary[uid]={field:uid}
+                10.if.isTrue.field = l18n_parent
+                10.if.negate = 1
+                20 = TEXT
+                20.dataWrap = &tx_a21glossary[uid]={field:l18n_parent}
+                20.if.isTrue.field = l18n_parent
+                if.isFalse.field = link
+            }
+
+            useCacheHash = 1
+            ATagParams = class="tx-glossary"
+
+            #{$plugin.tx_a21glossary.settings.commentAnchor}additionalParams >
+            #{$plugin.tx_a21glossary.settings.commentAnchor}additionalParams.field = uid
+            #{$plugin.tx_a21glossary.settings.commentAnchor}additionalParams.wrap = #tx_a21glossary_|
+        }
+
+        paginate {
+            itemsPerPage = 20
+            insertAbove = 0
+            insertBelow = 1
+            maximumNumberOfLinks = 9
+        }
+
+    }
+}
+
+# configuration of a single glossary list item
+# based on the TCA name
+tx_a21glossary_main = COA
+tx_a21glossary_main {
+
+    10 = TEXT
+    10 {
+        field = short
+        if.isTrue.field = short
+        outerWrap = {$plugin.tx_a21glossary.settings.termWrap}
+        outerWrap.insertData = 1
+
+    }
+
+    #{$plugin.tx_a21glossary.settings.commentAnchor}20 = TEXT
+    #{$plugin.tx_a21glossary.settings.commentAnchor}20.field = uid
+    #{$plugin.tx_a21glossary.settings.commentAnchor}20.wrap = <dt><a class="tx-glossary-link hidden" name="tx_a21glossary_|"><!-- --></a></dt>
+
+    30 = CASE
+    30 {
+        key.field = shorttype
+
+        stdWrap {
+            if.isTrue.field = shorttype
+            required = 1
+            outerWrap = {$plugin.tx_a21glossary.settings.labelWrap}
+            outerWrap.insertData = 1
+        }
+
+        acronym = TEXT
+        acronym {
+            data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xml:label_acronym
+            override = {$plugin.tx_a21glossary.settings.acronym_label}
+        }
+
+        abbr = TEXT
+        abbr {
+            data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xml:label_abbreviation
+            override = {$plugin.tx_a21glossary.settings.abbreviation_label}
+        }
+
+        dfn = TEXT
+        dfn {
+            data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xml:label_definition
+            override = {$plugin.tx_a21glossary.settings.definition_label}
+        }
+    }
+
+    40 = TEXT
+    40 {
+        field = longversion
+        required = 1
+        outerWrap = {$plugin.tx_a21glossary.settings.abstractWrap}
+        outerWrap.insertData = 1
+    }
+
+    50 = TEXT
+    50 {
+        field = description
+        required = 1
+        parseFunc =< lib.parseFunc_RTE
+        outerWrap = {$plugin.tx_a21glossary.settings.descriptionWrap}
+        outerWrap.insertData = 1
+    }
+}
+

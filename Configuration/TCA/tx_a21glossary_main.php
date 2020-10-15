@@ -31,31 +31,37 @@ return [
     ],
     'columns' => [
         'sys_language_uid' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'special' => 'languages',
                 'items' => [
                     [
-                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
                         -1,
+                        'flags-multiple'
                     ],
-                ]
+                ],
+                'default' => 0,
             ]
         ],
         'l18n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0],
+                    [
+                        '',
+                        0
+                    ]
                 ],
                 'foreign_table' => 'tx_a21glossary_main',
                 'foreign_table_where' => 'AND tx_a21glossary_main.pid=###CURRENT_PID### AND tx_a21glossary_main.sys_language_uid IN (-1,0)',
+                'default' => 0
             ]
         ],
         'l18n_diffsource' => [
@@ -72,35 +78,30 @@ return [
             ]
         ],
         'starttime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
-                'size' => '8',
-                'max' => '20',
-                'eval' => 'date',
-                'default' => '0',
-                'checkbox' => '0'
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime,int',
+                'default' => 0
             ]
         ],
         'endtime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
-                'size' => '8',
-                'max' => '20',
-                'eval' => 'date',
-                'checkbox' => '0',
-                'default' => '0',
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime,int',
+                'default' => 0,
                 'range' => [
-                    'upper' => mktime(0, 0, 0, 12, 31, 2020),
-                    'lower' => mktime(0, 0, 0, date('m') - 1, date('d'), date('Y'))
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
                 ]
             ]
         ],
         'fe_group' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
                 'type' => 'select',
@@ -123,8 +124,6 @@ return [
                 ],
                 'exclusiveKeys' => '-1,-2',
                 'foreign_table' => 'fe_groups',
-                'foreign_table_where' => 'ORDER BY fe_groups.title',
-                'enableMultiSelectFilterTextfield' => true
             ]
         ],
         'short' => [
@@ -159,6 +158,7 @@ return [
             'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype.I.-1', ''],
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.shorttype.I.0', 'span'],
@@ -175,6 +175,7 @@ return [
             'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.0', ''],
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.language.I.1', 'en'],
@@ -221,12 +222,12 @@ return [
                 'type' => 'check',
             ]
         ],
-
         'force_linking' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_linking',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_linking.I.0', '0'],
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_linking.I.1', '1'],
@@ -241,6 +242,7 @@ return [
             'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_case',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_case.I.0', '0'],
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_case.I.1', '1'],
@@ -255,6 +257,7 @@ return [
             'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_preservecase',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.0', '0'],
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_preservecase.I.1', '1'],
@@ -269,6 +272,7 @@ return [
             'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_regexp',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_regexp.I.0', '0'],
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_regexp.I.1', '1'],
@@ -282,6 +286,7 @@ return [
             'label' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_global',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_global.I.0', '0'],
                     ['LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main.force_global.I.1', '1'],
