@@ -28,7 +28,7 @@ namespace WapplerSystems\A21glossary\Hooks;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
-use WapplerSystems\A21glossary\Processor\AbstractProcessor;
+use WapplerSystems\A21glossary\Processor;
 
 /**
  * a21glossary: all found words in content wich correspond with the glossary entries
@@ -45,19 +45,19 @@ class FrontendHook
      * function call to apply to the totally rendered page (with non-caching
      * objects) hook the alternative is the userfunc below
      *
-     * @param string $content the full HTML content to output as object
+     * @param array $params
      * @param TypoScriptFrontendController $pObj the parent object, in this case the TSFE global object
      * @return void
      * @throws \InvalidArgumentException
      */
-    public function processHook(&$content, TypoScriptFrontendController $pObj)
+    public function processHook($params, TypoScriptFrontendController $pObj)
     {
-
         $conf = $GLOBALS['TSFE']->config['config']['tx_a21glossary.'];
+        $conf = GeneralUtility::removeDotsFromTS($conf);
 
-        $processor = GeneralUtility::makeInstance(AbstractProcessor::class);
-        $content = $processor->addLinksToBody($pObj->content, $conf);
-
+        /** @var Processor $processor */
+        $processor = GeneralUtility::makeInstance(Processor::class);
+        $pObj->content = $processor->main($pObj->content,$conf);
     }
 
 

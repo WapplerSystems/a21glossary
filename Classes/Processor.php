@@ -28,9 +28,7 @@ namespace WapplerSystems\A21glossary;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Html\HtmlParser;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
@@ -42,7 +40,7 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
  * @author    Sven Wappler <typo3YYYY@wappler.systems>
  * @author    Ronny Vorpahl <vorpahl@artplan21.de>
  */
-class FrontendHook
+class Processor
 {
 
     protected $search = [];
@@ -82,19 +80,6 @@ class FrontendHook
         $this->pageId = $GLOBALS['TSFE']->id;
 
 
-        $tsConfig = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(ConfigurationManagerInterface::class)
-            ->getConfiguration(
-                ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT
-            );
-
-        $config = $tsConfig['plugin.']['tx_a21glossary.']['settings.'] ?? [];
-        $config = GeneralUtility::removeDotsFromTS($config);
-        ArrayUtility::mergeRecursiveWithOverrule($config, $overrideConf);
-
-        $this->config = $config;
-
-
         $this->config['glossaryWHAT'] = 'ALL';
 
     }
@@ -128,12 +113,14 @@ class FrontendHook
      * words with the explanations
      *
      * @param string $content the content that should be parsed
+     * @param array $config
      * @return string the modified content
      * @throws \InvalidArgumentException
      */
-    public function main($content)
+    public function main($content, $config = [])
     {
 
+        $this->config = array_merge($this->config,$config);
 
         // return right now if the wrong page type was chosen
         $typeList = $this->config['typeList'];
@@ -166,9 +153,9 @@ class FrontendHook
         }
 
         if (GeneralUtility::inList($this->config['excludePages'], $this->pageId)) {
-            if ($this->config['excludePages.'][$this->pageId]) {
+            if ($this->config['excludePages'][$this->pageId]) {
                 // disable glossary only for certain glossary types
-                $this->config['excludeTypes'] .= ',' . $this->config['excludePages.'][$this->pageId];
+                $this->config['excludeTypes'] .= ',' . $this->config['excludePages'][$this->pageId];
             } else {
                 // disable glossary completly on current page: stop glossary rendering immediately
                 return $content;
@@ -317,7 +304,6 @@ class FrontendHook
             '<a21glossex>',
             '</a21glossex>'
         ];
-
 
         // add predefined includes
         /* TODO: Remove or improve */

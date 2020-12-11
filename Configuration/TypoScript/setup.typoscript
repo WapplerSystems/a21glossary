@@ -90,6 +90,8 @@ plugin.tx_a21glossary {
     }
 }
 
+page.config.tx_a21glossary < plugin.tx_a21glossary.settings
+
 # configuration of a single glossary list item
 # based on the TCA name
 tx_a21glossary_main = COA
