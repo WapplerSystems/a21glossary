@@ -18,6 +18,6 @@
         "typo3/cms-core": "^8.7.0 || ^9.5.0"
     },
     "replace": {
-        "a21glossary": "self.version"
+        "svewap/a21glossary": "self.version"
     }
 }
