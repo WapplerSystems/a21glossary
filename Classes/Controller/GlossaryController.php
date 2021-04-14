@@ -4,14 +4,21 @@ namespace WapplerSystems\A21glossary\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
+use WapplerSystems\A21glossary\Domain\Repository\EntryRepository;
 
 class GlossaryController extends ActionController
 {
     /**
      * @var \WapplerSystems\A21glossary\Domain\Repository\EntryRepository
-     * @inject
      */
     protected $glossaryRepository;
+
+	/**
+	 * @param EntryRepository $entryRepository
+	 */
+    public function injectGlossaryRepository(EntryRepository $entryRepository) {
+    	$this->glossaryRepository = $entryRepository;
+    }
 
     /**
      * @param string $char
