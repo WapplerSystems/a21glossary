@@ -29,7 +29,8 @@ class EntryRepository extends Repository
         $queryBuilder = $parser->convertQueryToDoctrineQueryBuilder($query);
         // Add our select and group by
         $queryBuilder->selectLiteral('substr(' . $queryBuilder->quoteIdentifier('short') . ', 1, 1) AS ' . $queryBuilder->quoteIdentifier('char'))
-            ->groupBy('char');
+            ->groupBy('char')
+	        ->addGroupBy('short');
 
         return $query->statement($queryBuilder)->execute(true);
     }
