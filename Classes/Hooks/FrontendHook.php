@@ -132,7 +132,10 @@ class FrontendHook
         GLOBAL $TSFE;
 
         // merge with extconf, $conf overrules
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['a21glossary']);
+	    $extConf = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+		    \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+	    )->get('a21glossary');
+
         if (\count($extConf)) {
             $conf = array_merge($extConf, (array)$conf);
         }
@@ -430,11 +433,11 @@ class FrontendHook
         $aPidList = GeneralUtility::intExplode(',', $pidList);
         $languageUid = (int)$GLOBALS['TSFE']->sys_language_uid;
 
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_a21glossary_main');
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_a21glossary_domain_model_entry');
 
         // manual ordering/grouping by pidlist
         foreach ($aPidList as $pid) {
-            $query = $connection->createQueryBuilder()->select('*')->from('tx_a21glossary_main');
+            $query = $connection->createQueryBuilder()->select('*')->from('tx_a21glossary_domain_model_entry');
             $query->where(
                 $query->expr()->eq('pid', $query->createNamedParameter($pid, \PDO::PARAM_INT)),
                 $query->expr()->in('sys_language_uid', [-1, $languageUid])
