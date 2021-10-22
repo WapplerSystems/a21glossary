@@ -19,5 +19,10 @@
     },
     "replace": {
         "svewap/a21glossary": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "a21glossary"
+        }
     }
 }
