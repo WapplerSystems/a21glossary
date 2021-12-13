@@ -20,6 +20,9 @@
     "replace": {
         "typo3-ter/a21glossary": "self.version"
     },
+    "suggest": {
+        "georgringer/numbered-pagination": "^1.0.2"
+    },
     "extra": {
         "typo3/cms": {
             "extension-key": "a21glossary"

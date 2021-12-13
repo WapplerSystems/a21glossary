@@ -1,7 +1,5 @@
 plugin.tx_a21glossary {
-
     view {
-
         templateRootPaths {
             0 = EXT:a21glossary/Resources/Private/Templates/
             1 = {$plugin.tx_a21glossary.view.templateRootPath}
@@ -16,14 +14,9 @@ plugin.tx_a21glossary {
             0 = EXT:a21glossary/Resources/Private/Layouts/
             1 = {$plugin.tx_a21glossary.view.layoutRootPath}
         }
-
-        widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPaths.10 = EXT:a21glossary/Resources/Private/Templates/
-
     }
 
     settings {
-
-
         caseSensitive = {$plugin.tx_a21glossary.settings.caseSensitive}
         preserveCase = {$plugin.tx_a21glossary.settings.preserveCase}
         patternModifiers = {$plugin.tx_a21glossary.settings.patternModifiers}
@@ -71,12 +64,13 @@ plugin.tx_a21glossary {
         }
 
         paginate {
+            class = GeorgRinger\NumberedPagination\NumberedPagination
+            showRecordCount = 1
             itemsPerPage = 20
             insertAbove = 0
             insertBelow = 1
-            maximumNumberOfLinks = 9
+            maximumNumberOfLinks = 5
         }
-
     }
 }
 

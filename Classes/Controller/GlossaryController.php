@@ -2,16 +2,25 @@
 
 namespace WapplerSystems\A21glossary\Controller;
 
+use GeorgRinger\NumberedPagination\NumberedPagination;
+use TYPO3\CMS\Core\Pagination\SimplePagination;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
+use WapplerSystems\A21glossary\Domain\Repository\GlossaryRepository;
 
 class GlossaryController extends ActionController
 {
     /**
      * @var \WapplerSystems\A21glossary\Domain\Repository\GlossaryRepository
-     * @inject
      */
     protected $glossaryRepository;
+
+    public function injectGlossaryRepository(GlossaryRepository $glossaryRepository)
+    {
+        $this->glossaryRepository = $glossaryRepository;
+    }
 
     /**
      * @param string $char
@@ -20,13 +29,30 @@ class GlossaryController extends ActionController
      */
     public function indexAction($char = null)
     {
-        $this->view->assign('index', $this->glossaryRepository->findAllForIndex());
         if (!empty($char)) {
-            $this->view->assign('currentChar', $char);
-            $this->view->assign('glossaryItems', $this->glossaryRepository->findAllWithChar($char));
+            $glossaryItems = $this->glossaryRepository->findAllWithChar($char);
         } else {
-            $this->view->assign('glossaryItems', $this->glossaryRepository->findAll());
+            $glossaryItems = $this->glossaryRepository->findAll();
         }
+
+        $paginationConfiguration = $this->settings['paginate'] ?? [];
+        $itemsPerPage = (int)($paginationConfiguration['itemsPerPage'] ?: 10);
+        $maximumNumberOfLinks = (int)($paginationConfiguration['maximumNumberOfLinks'] ?? 0);
+
+        $currentPage = $this->request->hasArgument('currentPage') ? (int)$this->request->getArgument('currentPage') : 1;
+        $paginator = GeneralUtility::makeInstance(QueryResultPaginator::class, $glossaryItems, $currentPage, $itemsPerPage);
+        $paginationClass = $paginationConfiguration['class'] ?? SimplePagination::class;
+        if ($paginationClass === NumberedPagination::class && $maximumNumberOfLinks && class_exists(NumberedPagination::class)) {
+            $pagination = GeneralUtility::makeInstance(NumberedPagination::class, $paginator, $maximumNumberOfLinks);
+        } elseif (class_exists($paginationClass)) {
+            $pagination = GeneralUtility::makeInstance($paginationClass, $paginator);
+        } else {
+            $pagination = GeneralUtility::makeInstance(SimplePagination::class, $paginator);
+        }
+
+        $this->view->assign('index', $this->glossaryRepository->findAllForIndex());
+        $this->view->assign('currentChar', $char);
+        $this->view->assign('pagination', ['pagination' => $pagination, 'paginator' => $paginator]);
     }
 
     /**

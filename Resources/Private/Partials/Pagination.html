@@ -1,0 +1,88 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{paginator.numberOfPages} > 1">
+    <nav class="pagination">
+        <f:if condition="{settings.paginate.showRecordCount}">
+            <p>
+                <f:translate key="paginate_record_count" arguments="{0: pagination.startRecordNumber, 1: pagination.endRecordNumber}"/>
+            </p>
+        </f:if>
+        <ul class="pagination__list">
+            <f:if condition="{pagination.previousPageNumber}">
+                <li class="pagination__item">
+                    <f:if condition="{pagination.previousPageNumber} > 1">
+                        <f:then>
+                            <f:link.action addQueryString="1" arguments="{currentPage: pagination.previousPageNumber}" class="pagination__link">
+                                <f:translate key="paginate_previous" extensionName="A21glossary"/>
+                            </f:link.action>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{currentChar}">
+                                <f:then>
+                                    <f:link.action arguments="{char: currentChar}" class="pagination__link">
+                                        <f:translate key="paginate_previous" extensionName="A21glossary"/>
+                                    </f:link.action>
+                                </f:then>
+                                <f:else>
+                                    <f:link.page class="pagination__link">
+                                        <f:translate key="paginate_previous" extensionName="A21glossary"/>
+                                    </f:link.page>
+                                </f:else>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </li>
+            </f:if>
+            <f:if condition="{pagination.displayRangeStart} > 1">
+                <li class="pagination__item">
+                    <f:link.action addQueryString="1" class="pagination__link">1</f:link.action>
+                </li>
+            </f:if>
+            <f:if condition="{pagination.hasLessPages}">
+                <li class="pagination__item pagination__item--more">…</li>
+            </f:if>
+            <f:for each="{pagination.allPageNumbers}" as="page">
+                <f:if condition="{page} == {paginator.currentPageNumber}">
+                    <f:then>
+                        <li class="pagination__item pagination__item--current">{page}</li>
+                    </f:then>
+                    <f:else>
+                        <li class="pagination__item">
+                            <f:if condition="{page} > 1">
+                                <f:then>
+                                    <f:link.action addQueryString="1" arguments="{currentPage: page}" class="pagination__link">{page}</f:link.action>
+                                </f:then>
+                                <f:else>
+                                    <f:if condition="{currentChar}">
+                                        <f:then>
+                                            <f:link.action arguments="{char: currentChar}" class="pagination__link">{page}</f:link.action>
+                                        </f:then>
+                                        <f:else>
+                                            <f:link.page class="pagination__link">{page}</f:link.page>
+                                        </f:else>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+            <f:if condition="{pagination.hasMorePages}">
+                <li class="pagination__item pagination__item--more">…</li>
+            </f:if>
+            <f:if condition="{pagination.displayRangeEnd} < {paginator.numberOfPages}">
+                <li class="pagination__item">
+                    <f:link.action addQueryString="1" arguments="{currentPage: paginator.numberOfPages}" class="pagination__link">{paginator.numberOfPages}</f:link.action>
+                </li>
+            </f:if>
+            <f:if condition="{pagination.nextPageNumber}">
+                <li class="pagination__item">
+                    <f:link.action addQueryString="1" arguments="{currentPage: pagination.nextPageNumber}" class="pagination__link">
+                        <f:translate key="paginate_next" extensionName="A21glossary"/>
+                    </f:link.action>
+                </li>
+            </f:if>
+        </ul>
+    </nav>
+</f:if>
+</html>
