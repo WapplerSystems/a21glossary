@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext">
+		<header/>
+
+		<body>
+			<trans-unit id="label_acronym">
+				<source>acronym of</source>
+			</trans-unit>
+			<trans-unit id="abbreviation_acronym">
+				<source>abbreviation of</source>
+			</trans-unit>
+			<trans-unit id="definition_acronym">
+				<source>definition</source>
+			</trans-unit>
+
+			<trans-unit id="all_chars">
+				<source>Entire glossary</source>
+			</trans-unit>
+			<trans-unit id="search">
+				<source>Search for term:</source>
+			</trans-unit>
+			<trans-unit id="search_button">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="type.span">
+				<source>Item for:</source>
+			</trans-unit>
+			<trans-unit id="type.dfn">
+				<source>Definition:</source>
+			</trans-unit>
+			<trans-unit id="type.acronym">
+				<source>Acronym:</source>
+			</trans-unit>
+			<trans-unit id="type.abbr">
+				<source>Abbreviation:</source>
+			</trans-unit>
+			<trans-unit id="paginate_record_count">
+				<source>Showing items %d to %d</source>
+			</trans-unit>
+			<trans-unit id="paginate_previous">
+				<source>Previous</source>
+			</trans-unit>
+			<trans-unit id="paginate_next">
+				<source>Previous</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
