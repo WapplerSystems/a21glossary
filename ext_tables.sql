@@ -17,7 +17,7 @@ CREATE TABLE tx_a21glossary_main (
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
-	fe_group int(11) DEFAULT '0' NOT NULL,
+	fe_group varchar(200) DEFAULT '0' NOT NULL,
 	short tinytext NOT NULL,
 	shortcut tinytext NOT NULL,
 	longversion tinytext NOT NULL,
