@@ -1,8 +1,8 @@
 {
-    "name": "svewap/a21glossary",
+    "name": "wapplersystems/a21glossary",
     "description": "automatic conversion of all abbreviations and acronyms in the special tags for accessibility issues",
     "type": "typo3-cms-extension",
-    "homepage": "http://wappler.systems",
+    "homepage": "https://wappler.systems",
     "license": "GPL-2.0-or-later",
     "autoload": {
         "psr-4": {
@@ -16,8 +16,5 @@
     },
     "require": {
         "typo3/cms-core": "^8.7.0 || ^9.5.0"
-    },
-    "replace": {
-        "typo3-ter/a21glossary": "self.version"
     }
 }
