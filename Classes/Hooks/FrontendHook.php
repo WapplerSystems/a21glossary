@@ -52,7 +52,10 @@ class FrontendHook
      */
     public function processHook($params, TypoScriptFrontendController $pObj)
     {
-        $conf = $GLOBALS['TSFE']->config['config']['tx_a21glossary.'];
+        $conf = $GLOBALS['TSFE']->config['config']['tx_a21glossary.'] ?? null;
+        if ($conf === null) {
+            return;
+        }
         $conf = GeneralUtility::removeDotsFromTS($conf);
 
         /** @var Processor $processor */
