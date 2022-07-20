@@ -13,7 +13,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'A21 Glossary',
     'description' => 'A21 Glossary - automatic conversion of all abbreviations and acronyms in the special tags for accessibility issues',
-    'version' => '11.0.0',
+    'version' => '11.0.3',
     'category' => 'fe',
     'constraints' => [
         'depends' => [
