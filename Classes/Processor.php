@@ -29,7 +29,6 @@ namespace WapplerSystems\A21glossary;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Html\HtmlParser;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
@@ -62,26 +61,16 @@ class Processor
     /** @var TypoScriptFrontendController */
     protected $tsFeController;
 
-    /** @var ObjectManager */
-    protected $objectManager;
-
     protected $config = [];
-
 
     public function __construct(array $overrideConf = [])
     {
 
         $this->tsFeController = $GLOBALS['TSFE'];
 
-
-        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-
-
         $this->pageId = $GLOBALS['TSFE']->id;
 
-
         $this->config['glossaryWHAT'] = 'ALL';
-
     }
 
 
@@ -168,7 +157,7 @@ class Processor
             return $content;
         }
 
-        $cObj = $this->objectManager->get(ContentObjectRenderer::class);
+        $cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
         // sort entries from z-a to replace more special words with the same beginnng first eg. aminoacid before amino
         krsort($items);

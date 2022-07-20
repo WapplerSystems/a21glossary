@@ -1,0 +1,13 @@
+<div class="result">
+    <f:if condition="{settings.paginate.insertAbove}">
+        <f:render partial="Pagination" arguments="{currentChar: currentChar, pagination: pagination.pagination, paginator: pagination.paginator}" />
+    </f:if>
+    <dl class="glossary">
+        <f:for each="{pagination.paginator.paginatedItems}" as="glossaryItem">
+            <f:render partial="Entry" arguments="{settings:settings,item:glossaryItem}" />
+        </f:for>
+    </dl>
+    <f:if condition="{settings.paginate.insertBelow}">
+        <f:render partial="Pagination" arguments="{currentChar: currentChar, pagination: pagination.pagination, paginator: pagination.paginator}" />
+    </f:if>
+</div>

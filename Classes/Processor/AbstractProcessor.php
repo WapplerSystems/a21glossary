@@ -30,9 +30,6 @@ abstract class AbstractProcessor implements SingletonInterface
     /** @var TypoScriptFrontendController */
     protected $tsFeController;
 
-    /** @var ObjectManager */
-    protected $objectManager;
-
     protected $config = [];
 
     protected $startMarker = '<glossary>';
@@ -59,15 +56,10 @@ abstract class AbstractProcessor implements SingletonInterface
 
         $this->tsFeController = $GLOBALS['TSFE'];
 
-
-        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-
-
         $this->pageId = $this->tsFeController->id;
 
 
-        $tsConfig = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(ConfigurationManagerInterface::class)
+        $tsConfig = GeneralUtility::makeInstance(ConfigurationManagerInterface::class)
             ->getConfiguration(
                 ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT
             );
@@ -184,7 +176,7 @@ abstract class AbstractProcessor implements SingletonInterface
 
         $language = $this->tsFeController->getLanguage();
 
-        $cObj = $this->objectManager->get(ContentObjectRenderer::class);
+        $cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
         // sort entries from z-a to replace more special words with the same beginnng first eg. aminoacid before amino
         krsort($items);

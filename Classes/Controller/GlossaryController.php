@@ -63,6 +63,6 @@ class GlossaryController extends ActionController
     public function searchAction($q)
     {
         $this->view->assign('q', $q);
-        $this->view->assign('glossaryItems', $this->glossaryRepository->findAllWithQuery($q));
+        $this->view->assign('items', $this->glossaryRepository->findAllWithQuery($q));
     }
 }

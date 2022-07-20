@@ -16,6 +16,9 @@ plugin.tx_a21glossary {
     }
   }
 
+  persistence {
+    storagePid = {$plugin.tx_a21glossary.settings.storagePage}
+  }
   settings {
     caseSensitive = {$plugin.tx_a21glossary.settings.caseSensitive}
     preserveCase = {$plugin.tx_a21glossary.settings.preserveCase}
@@ -41,7 +44,6 @@ plugin.tx_a21glossary {
 
     typolink {
       parameter = {$plugin.tx_a21glossary.settings.glossaryPage}
-      parameter.override.field = link
       additionalParams >
       additionalParams.stdWrap.cObject = COA
       additionalParams.stdWrap.cObject {
