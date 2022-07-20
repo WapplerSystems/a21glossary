@@ -1,5 +1,7 @@
 <?php
 
+use WapplerSystems\A21glossary\Controller\GlossaryController;
+
 if (!defined('TYPO3_MODE')) {
     die ('Access denied.');
 }
@@ -11,6 +13,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPo
 TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'SveWap.A21glossary',
     'Pi1',
-    [\WapplerSystems\A21glossary\Controller\GlossaryController::class => 'index,search'],
-    [\WapplerSystems\A21glossary\Controller\GlossaryController::class => 'search']
+    [GlossaryController::class => 'index,search'],
+    [GlossaryController::class => 'search']
 );
