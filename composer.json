@@ -1,8 +1,8 @@
 {
-    "name": "svewap/a21glossary",
+    "name": "wapplersystems/a21glossary",
     "description": "automatic conversion of all abbreviations and acronyms in the special tags for accessibility issues",
     "type": "typo3-cms-extension",
-    "homepage": "https://github.com/svewap/a21glossary",
+    "homepage": "https://github.com/WapplerSystems/a21glossary",
     "license": "GPL-2.0+",
     "keywords": [
         "typo3",
@@ -15,10 +15,10 @@
         }
     },
     "require": {
-        "typo3/cms-core": "^10.4.0 || ^11.5.0"
+        "typo3/cms-core": "^11.5.0"
     },
     "replace": {
-        "typo3-ter/a21glossary": "self.version"
+        "svewap/a21glossary": "self.version"
     },
     "suggest": {
         "georgringer/numbered-pagination": "^1.0.2"
