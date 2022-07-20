@@ -15,13 +15,11 @@
         }
     },
     "require": {
-        "typo3/cms-core": "^11.5.0"
+        "typo3/cms-core": "^11.5.0",
+        "georgringer/numbered-pagination": "^1.0.2"
     },
     "replace": {
         "svewap/a21glossary": "self.version"
-    },
-    "suggest": {
-        "georgringer/numbered-pagination": "^1.0.2"
     },
     "extra": {
         "typo3/cms": {
