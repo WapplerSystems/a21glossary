@@ -34,7 +34,6 @@ use TYPO3\CMS\Core\Http\NullResponse;
 use TYPO3\CMS\Core\Http\Stream;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use WapplerSystems\A21glossary\Processor;
 
@@ -67,17 +66,15 @@ class Glossary implements MiddlewareInterface
             $contents = $response->getBody()->getContents();
 
 
-            $tsConfig = GeneralUtility::makeInstance(ObjectManager::class)
-                ->get(ConfigurationManagerInterface::class)
+            $tsConfig = GeneralUtility::makeInstance(ConfigurationManagerInterface::class)
                 ->getConfiguration(
                     ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT
                 );
 
             $config = $tsConfig['plugin.']['tx_a21glossary.']['settings.'] ?? [];
-            $config = GeneralUtility::removeDotsFromTS($config);
 
             $processor = GeneralUtility::makeInstance(Processor::class);
-            $content = $processor->main($contents,$config);
+            $content = $processor->main($contents, $config);
 
 
             $body = new Stream('php://temp', 'rw');

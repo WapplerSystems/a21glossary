@@ -74,7 +74,6 @@ class Processor
     }
 
 
-
     /**
      * AddSlash array
      * This function traverses a multidimensional array and adds slashes to the values.
@@ -109,7 +108,7 @@ class Processor
     public function main($content, $config = [])
     {
 
-        $this->config = array_merge($this->config,$config);
+        $this->config = array_merge($this->config, $config);
 
         // return right now if the wrong page type was chosen
         $typeList = $this->config['typeList'];
@@ -199,7 +198,7 @@ class Processor
                 if ($item['force_linking']) {
                     $generateLink = ((int)$item['force_linking'] === 1) ? 1 : 0;
 
-                } elseif (\count($this->config['typolink']) && GeneralUtility::inList($this->config['linkToGlossary'],
+                } elseif (\count($this->config['typolink.']) && GeneralUtility::inList($this->config['linkToGlossary'],
                         $item['shorttype'])) {
                     $generateLink = 1;
 
@@ -231,7 +230,7 @@ class Processor
                 $replacement = ' <' . $element . $lang . $title . '> ' . $replacement . ' </' . $element . '> ';
 
                 if ($generateLink) {
-                    $replacement = ' ' . $cObj->typoLink($replacement, $this->config['typolink']) . ' ';
+                    $replacement = ' ' . $cObj->typoLink($replacement, $this->config['typolink.']) . ' ';
                 }
 
                 // set needle
@@ -472,15 +471,15 @@ class Processor
             foreach ($contentSplit as $contentSplitValue) {
 
                 // replaceable part
-                if ((0 === strpos($contentSplitValue, '<a21glossary>')) &&
-                    (substr($contentSplitValue, -14) === '</a21glossary>')) {
+                if (str_starts_with($contentSplitValue, '<a21glossary>') &&
+                    str_ends_with($contentSplitValue, '</a21glossary>')) {
 
                     $result .= '<a21glossary>' . $this->splitAndReplace(substr($contentSplitValue, 13, -14), 1,
                             $tagsExcluded, $depth + 1) . '</a21glossary>';
 
                     // excluded part
-                } elseif ((0 === strpos($contentSplitValue, '<a21glossex>')) &&
-                    (substr($contentSplitValue, -13) === '</a21glossex>')) {
+                } elseif (str_starts_with($contentSplitValue, '<a21glossex>') &&
+                    str_ends_with($contentSplitValue, '</a21glossex>')) {
 
                     // change of rules: once excluded, nothing inside may be included again.
                     // $result.= '<a21glossex>'.$this->splitAndReplace(substr($contentSplitValue,12,-13),0,$depth+1).'</a21glossex>';

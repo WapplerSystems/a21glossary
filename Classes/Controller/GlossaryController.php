@@ -8,6 +8,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
+use WapplerSystems\A21glossary\Domain\Model\Glossary;
 use WapplerSystems\A21glossary\Domain\Repository\GlossaryRepository;
 
 class GlossaryController extends ActionController
@@ -64,5 +65,14 @@ class GlossaryController extends ActionController
     {
         $this->view->assign('q', $q);
         $this->view->assign('items', $this->glossaryRepository->findAllWithQuery($q));
+    }
+
+    /**
+     * @param Glossary $entry
+     * @return void
+     */
+    public function showAction(Glossary $entry) {
+
+        $this->view->assign('item', $entry);
     }
 }

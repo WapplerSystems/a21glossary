@@ -56,7 +56,6 @@ class FrontendHook
         if ($conf === null) {
             return;
         }
-        $conf = GeneralUtility::removeDotsFromTS($conf);
 
         /** @var Processor $processor */
         $processor = GeneralUtility::makeInstance(Processor::class);

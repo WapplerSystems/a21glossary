@@ -11,8 +11,8 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPo
 
 
 TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'SveWap.A21glossary',
+    'a21glossary',
     'Pi1',
-    [GlossaryController::class => 'index,search'],
+    [GlossaryController::class => 'index,search,show'],
     [GlossaryController::class => 'search']
 );
