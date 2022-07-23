@@ -9,7 +9,6 @@ use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Html\HtmlParser;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -329,8 +328,6 @@ abstract class AbstractProcessor implements SingletonInterface
 
 
         $countStartMarkers = substr_count($content,$this->startMarker);
-
-        DebugUtility::debug($countStartMarkers);
 
         $length = count($content);
         for ($i = 0; $i < $length; $i++) {

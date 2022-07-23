@@ -58,26 +58,23 @@ plugin.tx_a21glossary {
 
     typolink {
       parameter = {$plugin.tx_a21glossary.settings.glossaryPage}
-      parameter.override.field = link
       additionalParams >
       additionalParams.stdWrap.cObject = COA
       additionalParams.stdWrap.cObject {
+        5 = TEXT
+        5.value = &tx_a21glossary_pi1[action]=show
         10 = TEXT
-        10.dataWrap = &tx_a21glossary[uid]={field:uid}
+        10.dataWrap = &tx_a21glossary_pi1[entry]={field:uid}
         10.if.isTrue.field = l18n_parent
         10.if.negate = 1
         20 = TEXT
-        20.dataWrap = &tx_a21glossary[uid]={field:l18n_parent}
+        20.dataWrap = &tx_a21glossary_pi1[entry]={field:l18n_parent}
         20.if.isTrue.field = l18n_parent
         if.isFalse.field = link
       }
 
       useCacheHash = 1
       ATagParams = class="tx-glossary"
-
-      #{$plugin.tx_a21glossary.settings.commentAnchor}additionalParams >
-      #{$plugin.tx_a21glossary.settings.commentAnchor}additionalParams.field = uid
-      #{$plugin.tx_a21glossary.settings.commentAnchor}additionalParams.wrap = #tx_a21glossary_|
     }
 
     paginate {
@@ -86,7 +83,6 @@ plugin.tx_a21glossary {
       insertBelow = 1
       maximumNumberOfLinks = 9
     }
-
   }
 }
 
@@ -105,10 +101,6 @@ tx_a21glossary_main {
     outerWrap.insertData = 1
 
   }
-
-  #{$plugin.tx_a21glossary.settings.commentAnchor}20 = TEXT
-  #{$plugin.tx_a21glossary.settings.commentAnchor}20.field = uid
-  #{$plugin.tx_a21glossary.settings.commentAnchor}20.wrap = <dt><a class="tx-glossary-link hidden" name="tx_a21glossary_|"><!-- --></a></dt>
 
   30 = CASE
   30 {

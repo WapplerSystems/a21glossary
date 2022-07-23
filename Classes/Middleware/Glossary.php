@@ -74,10 +74,9 @@ class Glossary implements MiddlewareInterface
                 );
 
             $config = $tsConfig['plugin.']['tx_a21glossary.']['settings.'] ?? [];
-            $config = GeneralUtility::removeDotsFromTS($config);
 
             $processor = GeneralUtility::makeInstance(Processor::class);
-            $content = $processor->main($contents,$config);
+            $content = $processor->main($contents, $config);
 
 
             $body = new Stream('php://temp', 'rw');

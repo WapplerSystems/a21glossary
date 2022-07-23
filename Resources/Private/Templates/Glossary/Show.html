@@ -1,0 +1,10 @@
+<h1>{item.short}</h1>
+
+<f:if condition="{item.shorttype}">
+    <span class="type" data-type="{item.shorttype}"><f:translate id="type.{item.shorttype}" /></span>
+</f:if>
+<f:if condition="{item.longversion}">
+    <strong>{item.longversion}</strong>
+</f:if>
+{item.description -> f:format.html()}
+
