@@ -3,6 +3,10 @@
 namespace SveWap\A21glossary\Domain\Repository;
 
 use SveWap\A21glossary\Domain\Model\Glossary;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\QueryBuilder;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser;
@@ -21,17 +25,20 @@ class GlossaryRepository extends Repository
      */
     public function findAllForIndex()
     {
-        /** @var Query $query */
-        $query = $this->createQuery();
-        // Get the query parser via object manager to use dependency injection
-        $parser = $this->objectManager->get(Typo3DbQueryParser::class);
-        // Convert the extbase query to a query builder
-        $queryBuilder = $parser->convertQueryToDoctrineQueryBuilder($query);
-        // Add our select and group by
-        $queryBuilder->selectLiteral('substr(' . $queryBuilder->quoteIdentifier('short') . ', 1, 1) AS ' . $queryBuilder->quoteIdentifier('char'))
-            ->groupBy('char');
-
-        return $query->statement($queryBuilder)->execute(true);
+        $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+        $language = $languageAspect->getId();
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_a21glossary_main')->createQueryBuilder();
+        return $queryBuilder->select('uid')
+            ->selectLiteral('substr(' . $queryBuilder->quoteIdentifier('short') . ', 1, 1) AS ' . $queryBuilder->quoteIdentifier('char'))
+            ->from('tx_a21glossary_main')
+            ->where(
+                $queryBuilder->expr()->eq(
+                    'sys_language_uid', $queryBuilder->createNamedParameter($language, \PDO::PARAM_INT)
+                )
+            )
+            ->groupBy('char')
+            ->execute()
+            ->fetchAll();
     }
 
     /**
