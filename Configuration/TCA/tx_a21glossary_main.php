@@ -124,6 +124,7 @@ return [
                 ],
                 'exclusiveKeys' => '-1,-2',
                 'foreign_table' => 'fe_groups',
+                'default' => 0,
             ]
         ],
         'short' => [
