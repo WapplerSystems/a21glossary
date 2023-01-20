@@ -136,7 +136,7 @@ class Processor
             $this->depths[$i] = 0;
         }
 
-        if (isset($this->config['noglossary']) || $this->piVars['disable']) {
+        if (isset($this->config['noglossary']) || ($this->piVars['disable'] ?? null)) {
             return $content;
         }
 
@@ -173,14 +173,14 @@ class Processor
         // prepare items
         foreach ($items as $item) {
 
-            if (!GeneralUtility::inList($this->config['excludeTypes'], $item['shorttype'])) {
+            if (!GeneralUtility::inList($this->config['excludeTypes'] ?? '', $item['shorttype'])) {
 
                 $cObj->data = $item;
 
                 // set item language
                 if ($item['language'] && $language->getTwoLetterIsoCode() != $item['language']) {
-                    $lang = ((int)$this->config['noLang'] ? '' : (' lang="' . $item['language'] . '"'))
-                        . ((int)$this->config['xmlLang'] ? (' xml:lang="' . $item['language'] . '"') : '');
+                    $lang = (((int)($this->config['noLang'] ?? 0)) ? '' : (' lang="' . $item['language'] . '"'))
+                        . (((int)($this->config['xmlLang'] ?? 0)) ? (' xml:lang="' . $item['language'] . '"') : '');
                 } else {
                     $lang = '';
                 }
@@ -226,11 +226,11 @@ class Processor
                     $replacement = ((int)$this->config['preserveCase'] ? '$1' : $item['short']);
                 }
 
-                $replacement = trim($cObj->stdWrap($replacement, $this->config[$element]));
+                $replacement = trim($cObj->stdWrap($replacement, $this->config[$element] ?? []));
                 $replacement = ' <' . $element . $lang . $title . '> ' . $replacement . ' </' . $element . '> ';
 
                 if ($generateLink) {
-                    $replacement = ' ' . $cObj->typoLink($replacement, $this->config['typolink.']) . ' ';
+                    $replacement = ' ' . $cObj->typoLink($replacement, $this->config['typolink.'] ?? []) . ' ';
                 }
 
                 // set needle
@@ -303,7 +303,7 @@ class Processor
             $this->replaceMarkers[] = '</a21glossary></body>';
         }
 
-        if ($this->config['glossaryWHAT'] === 'SEARCHTAGS' || (int)$this->config['includeSearchTags']) {
+        if ($this->config['glossaryWHAT'] === 'SEARCHTAGS' || (int)($this->config['includeSearchTags'] ?? 0)) {
             $this->searchMarkers[] = '<!--TYPO3SEARCH_begin-->';
             $this->replaceMarkers[] = '<!--TYPO3SEARCH_begin--><a21glossary>';
 
@@ -417,6 +417,9 @@ class Processor
                 $row['shortcut'] = trim($row['shortcut']);
                 $row['short'] = trim($row['short']);
                 $items[$row['shortcut'] ? $row['shortcut'] : $row['short']] = $row;
+                if (!isset($this->count['found'])) {
+                    $this->count['found'] = 0;
+                }
                 $this->count['found']++;
             }
         }
@@ -437,6 +440,9 @@ class Processor
     {
 
         $content = preg_replace($search, $replace, $content, -1, $counter);
+        if (!isset($this->count['replaced'])) {
+            $this->count['replaced'] = 0;
+        }
         $this->count['replaced'] += $counter;
         return $content;
     }
