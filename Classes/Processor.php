@@ -111,6 +111,13 @@ class Processor
         $this->config = array_merge($this->config, $config);
 
         // return right now if the wrong page type was chosen
+        if (!isset($this->config['typeList'])) {
+            /** to preserve old behavior we need to differ between emptystring (default TypoScript) which is used in the
+             * lines below and null (no TypoScript at all included). Due to ('' !== $typeList) null was never regarded
+             * (which is correct), thus we need to check early, instead of relax the check
+             */
+            return $content;
+        }
         $typeList = $this->config['typeList'];
         $typeList = ('' !== $typeList) ? $typeList : '0';
         $typeList = @explode(',', $typeList);
