@@ -23,7 +23,7 @@ return [
             'endtime' => 'endtime',
             'fe_group' => 'fe_group'
         ],
-        'iconfile' => 'EXT:a21glossary/Resources/Public/Icons/tx_a21glossary_main.svg',
+        'iconfile' => 'EXT:a21glossary/Resources/Public/Icons/Extension.svg.svg',
         'searchFields' => 'short,shortcut,longversion'
     ],
     'columns' => [
