@@ -26,9 +26,6 @@ return [
         'iconfile' => 'EXT:a21glossary/Resources/Public/Icons/tx_a21glossary_main.svg',
         'searchFields' => 'short,shortcut,longversion'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid,l18n_parent,l18n_diffsource,hidden,starttime,endtime,fe_group,short,shortcut,longversion,shorttype,language,description,link,exclude,force_linking,force_case,force_preservecase,force_regexp,force_global'
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
