@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
-}
-
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xml:tx_a21glossary_main',
