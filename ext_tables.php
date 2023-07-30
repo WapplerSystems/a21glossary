@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
-}
-
+defined('TYPO3') || die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_a21glossary_main');
