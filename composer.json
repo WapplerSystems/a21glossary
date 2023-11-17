@@ -16,8 +16,7 @@
     },
     "require": {
         "typo3/cms-core": "^12.4.0",
-        "typo3/cms-frontend": "^12.4.0",
-        "georgringer/numbered-pagination": "^1.0.2"
+        "typo3/cms-frontend": "^12.4.0"
     },
     "extra": {
         "typo3/cms": {
