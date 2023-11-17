@@ -19,9 +19,6 @@
         "typo3/cms-frontend": "^12.4.0",
         "georgringer/numbered-pagination": "^1.0.2"
     },
-    "replace": {
-        "svewap/a21glossary": "self.version"
-    },
     "extra": {
         "typo3/cms": {
             "extension-key": "a21glossary"

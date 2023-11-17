@@ -105,7 +105,7 @@ class Processor
      * @return string the modified content
      * @throws \InvalidArgumentException
      */
-    public function main($content, $config = [])
+    public function main(string $content, array $config = []): string
     {
 
         $this->config = array_merge($this->config, $config);
@@ -397,7 +397,7 @@ class Processor
      * @param string $pidList idlists set by configuraion
      * @return array glossary items
      */
-    protected function fetchGlossaryItems($pidList): array
+    protected function fetchGlossaryItems(string $pidList): array
     {
         // -1 means: ignore pids
         if ('' === trim($pidList)) {
@@ -413,22 +413,24 @@ class Processor
 
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_a21glossary_main');
 
-        $query = $connection->createQueryBuilder()->select('*')->from('tx_a21glossary_main');
-        $query->where(
-            $query->expr()->in('pid', $aPidList),
-            $query->expr()->in('sys_language_uid', [-1, $languageUid])
-        )->orderBy('short', 'asc');
+        $query = $connection->createQueryBuilder();
+        $query->getRestrictions()->removeAll();
+        $query = $query->select('*')->from('tx_a21glossary_main')
+            ->where(
+                $query->expr()->in('pid', $aPidList),
+                $query->expr()->in('sys_language_uid', [-1, $languageUid])
+            )
+            ->orderBy('short', 'asc');
 
-        if ($statement = $query->execute()) {
-            foreach ($statement as $row) {
-                $row['shortcut'] = trim($row['shortcut']);
-                $row['short'] = trim($row['short']);
-                $items[$row['shortcut'] ? $row['shortcut'] : $row['short']] = $row;
-                if (!isset($this->count['found'])) {
-                    $this->count['found'] = 0;
-                }
-                $this->count['found']++;
+        $results = $query->executeQuery()->fetchAllAssociative();
+        foreach ($results as $row) {
+            $row['shortcut'] = trim($row['shortcut']);
+            $row['short'] = trim($row['short']);
+            $items[$row['shortcut'] ? $row['shortcut'] : $row['short']] = $row;
+            if (!isset($this->count['found'])) {
+                $this->count['found'] = 0;
             }
+            $this->count['found']++;
         }
         $this->count['used'] = \count($items);
         return $items;
