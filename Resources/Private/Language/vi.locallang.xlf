@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" target-language="vi">
+    <header/>
+    <body>
+      <trans-unit id="label_acronym">
+        <source>acronym of</source>
+        <target state="needs-translation">acronym of</target>
+      </trans-unit>
+      <trans-unit id="abbreviation_acronym">
+        <source>abbreviation of</source>
+        <target state="needs-translation">abbreviation of</target>
+      </trans-unit>
+      <trans-unit id="definition_acronym">
+        <source>definition</source>
+        <target state="needs-translation">definition</target>
+      </trans-unit>
+      <trans-unit id="all_chars">
+        <source>Entire glossary</source>
+        <target state="needs-translation">Entire glossary</target>
+      </trans-unit>
+      <trans-unit id="search">
+        <source>Search for term:</source>
+        <target state="needs-translation">Search for term:</target>
+      </trans-unit>
+      <trans-unit id="search_button">
+        <source>Search</source>
+        <target state="needs-translation">Search</target>
+      </trans-unit>
+      <trans-unit id="type.span">
+        <source>Item for:</source>
+        <target state="needs-translation">Item for:</target>
+      </trans-unit>
+      <trans-unit id="type.dfn">
+        <source>Definition:</source>
+        <target state="needs-translation">Definition:</target>
+      </trans-unit>
+      <trans-unit id="type.acronym">
+        <source>Acronym:</source>
+        <target state="needs-translation">Acronym:</target>
+      </trans-unit>
+      <trans-unit id="type.abbr">
+        <source>Abbreviation:</source>
+        <target state="needs-translation">Abbreviation:</target>
+      </trans-unit>
+      <trans-unit id="paginate_record_count">
+        <source>Showing items %d to %d</source>
+        <target state="needs-translation">Showing items %d to %d</target>
+      </trans-unit>
+      <trans-unit id="paginate_previous">
+        <source>Previous</source>
+        <target state="needs-translation">Previous</target>
+      </trans-unit>
+      <trans-unit id="paginate_next">
+        <source>Previous</source>
+        <target state="needs-translation">Previous</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
