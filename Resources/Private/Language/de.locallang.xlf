@@ -33,7 +33,7 @@
       </trans-unit>
       <trans-unit id="type.dfn">
         <source>Definition:</source>
-        <target state="needs-translation">Definition:</target>
+        <target state="translated">Definition:</target>
       </trans-unit>
       <trans-unit id="type.acronym">
         <source>Acronym:</source>
