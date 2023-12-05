@@ -1,62 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" target-language="de">
-		<header/>
-
-		<body>
-			<trans-unit id="label_acronym">
-				<source>acronym of</source>
-				<target>Akronym von</target>
-			</trans-unit>
-			<trans-unit id="abbreviation_acronym">
-				<source>abbreviation of</source>
-				<target>Abkürzung von</target>
-			</trans-unit>
-			<trans-unit id="definition_acronym">
-				<source>definition</source>
-				<target>Definition</target>
-			</trans-unit>
-
-			<trans-unit id="all_chars">
-				<source>Entire glossary</source>
-				<target>Gesamtes Glossar</target>
-			</trans-unit>
-			<trans-unit id="search">
-				<source>Search for term:</source>
-				<target>Begriff suchen:</target>
-			</trans-unit>
-			<trans-unit id="search_button">
-				<source>Search</source>
-				<target>Suchen</target>
-			</trans-unit>
-			<trans-unit id="type.span">
-				<source>Item for:</source>
-				<target>Begriff für:</target>
-			</trans-unit>
-			<trans-unit id="type.dfn">
-				<source>Definition:</source>
-				<target>Definition:</target>
-			</trans-unit>
-			<trans-unit id="type.acronym">
-				<source>Acronym:</source>
-				<target>Akronym für:</target>
-			</trans-unit>
-			<trans-unit id="type.abbr">
-				<source>Abbreviation:</source>
-				<target>Abkürzung für:</target>
-			</trans-unit>
-			<trans-unit id="paginate_record_count">
-				<source>Showing items %d to %d</source>
-				<target>Zeige Eintrag %d bis %d</target>
-			</trans-unit>
-			<trans-unit id="paginate_previous">
-				<source>Previous</source>
-				<target>Vorherige</target>
-			</trans-unit>
-			<trans-unit id="paginate_next">
-				<source>Previous</source>
-				<target>Nächste</target>
-			</trans-unit>
-		</body>
-	</file>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="label_acronym">
+        <source>acronym of</source>
+        <target state="translated">Akronym von</target>
+      </trans-unit>
+      <trans-unit id="abbreviation_acronym">
+        <source>abbreviation of</source>
+        <target state="translated">Abkürzung von</target>
+      </trans-unit>
+      <trans-unit id="definition_acronym">
+        <source>definition</source>
+        <target state="translated">Definition</target>
+      </trans-unit>
+      <trans-unit id="all_chars">
+        <source>Entire glossary</source>
+        <target state="translated">Gesamtes Glossar</target>
+      </trans-unit>
+      <trans-unit id="search">
+        <source>Search for term:</source>
+        <target state="translated">Begriff suchen:</target>
+      </trans-unit>
+      <trans-unit id="search_button">
+        <source>Search</source>
+        <target state="translated">Suchen</target>
+      </trans-unit>
+      <trans-unit id="type.span">
+        <source>Item for:</source>
+        <target state="translated">Begriff für:</target>
+      </trans-unit>
+      <trans-unit id="type.dfn">
+        <source>Definition:</source>
+        <target state="needs-translation">Definition:</target>
+      </trans-unit>
+      <trans-unit id="type.acronym">
+        <source>Acronym:</source>
+        <target state="translated">Akronym für:</target>
+      </trans-unit>
+      <trans-unit id="type.abbr">
+        <source>Abbreviation:</source>
+        <target state="translated">Abkürzung für:</target>
+      </trans-unit>
+      <trans-unit id="paginate_record_count">
+        <source>Showing items %d to %d</source>
+        <target state="translated">Zeige Eintrag %d bis %d</target>
+      </trans-unit>
+      <trans-unit id="paginate_previous">
+        <source>Previous</source>
+        <target state="translated">Vorherige</target>
+      </trans-unit>
+      <trans-unit id="paginate_next">
+        <source>Previous</source>
+        <target state="translated">Nächste</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
