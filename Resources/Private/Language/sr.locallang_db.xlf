@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" target-language="sr">
+    <header/>
+    <body>
+      <trans-unit id="tx_a21glossary_main">
+        <source>Glossary</source>
+        <target state="needs-translation">Glossary</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.short">
+        <source>Short form</source>
+        <target state="needs-translation">Short form</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.shortcut">
+        <source>Alternative shortcut</source>
+        <target state="needs-translation">Alternative shortcut</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.longversion">
+        <source>Long text</source>
+        <target state="needs-translation">Long text</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.shorttype.I.0">
+        <source>Language</source>
+        <target state="needs-translation">Language</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.shorttype.I.1">
+        <source>Definition</source>
+        <target state="needs-translation">Definition</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.shorttype.I.2">
+        <source>Acronym, e.g. NATO</source>
+        <target state="needs-translation">Acronym, e.g. NATO</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.shorttype.I.3">
+        <source>Abbreviation, e.g. etc.</source>
+        <target state="needs-translation">Abbreviation, e.g. etc.</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.shorttype">
+        <source>Type</source>
+        <target state="needs-translation">Type</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.0">
+        <source>Not Set (All Languages)</source>
+        <target state="needs-translation">Not Set (All Languages)</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.1">
+        <source>English</source>
+        <target state="needs-translation">English</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.2">
+        <source>French</source>
+        <target state="needs-translation">French</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.3">
+        <source>German</source>
+        <target state="needs-translation">German</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.4">
+        <source>Italian</source>
+        <target state="needs-translation">Italian</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.5">
+        <source>Spain</source>
+        <target state="needs-translation">Spain</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.6">
+        <source>Portuguese</source>
+        <target state="needs-translation">Portuguese</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.7">
+        <source>Russian</source>
+        <target state="needs-translation">Russian</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.8">
+        <source>Chinese</source>
+        <target state="needs-translation">Chinese</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.9">
+        <source>Japanese</source>
+        <target state="needs-translation">Japanese</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.10">
+        <source>Modern Greek</source>
+        <target state="needs-translation">Modern Greek</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.11">
+        <source>Ancient Greek</source>
+        <target state="needs-translation">Ancient Greek</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.12">
+        <source>Latin</source>
+        <target state="needs-translation">Latin</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language.I.13">
+        <source>Hebrew</source>
+        <target state="needs-translation">Hebrew</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.language">
+        <source>Differing language of item</source>
+        <target state="needs-translation">Differing language of item</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.description">
+        <source>Description</source>
+        <target state="needs-translation">Description</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.link">
+        <source>External Link (Override, Instead Of Glossary Page)</source>
+        <target state="needs-translation">External Link (Override, Instead Of Glossary Page)</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.exclude">
+        <source>Exclude from frontend glossary list</source>
+        <target state="needs-translation">Exclude from frontend glossary list</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_linking">
+        <source>Linking</source>
+        <target state="needs-translation">Linking</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_linking.I.0">
+        <source>Keep Global Setting</source>
+        <target state="needs-translation">Keep Global Setting</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_linking.I.1">
+        <source>Force Linking</source>
+        <target state="needs-translation">Force Linking</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_linking.I.2">
+        <source>Force No Linking</source>
+        <target state="needs-translation">Force No Linking</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_case">
+        <source>Case Sensitivity</source>
+        <target state="needs-translation">Case Sensitivity</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_case.I.0">
+        <source>Keep Global Setting</source>
+        <target state="needs-translation">Keep Global Setting</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_case.I.1">
+        <source>Force Insensitive</source>
+        <target state="needs-translation">Force Insensitive</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_case.I.2">
+        <source>Force Sensitive</source>
+        <target state="needs-translation">Force Sensitive</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_preservecase">
+        <source>Preserve Displayed Case</source>
+        <target state="needs-translation">Preserve Displayed Case</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_preservecase.I.0">
+        <source>Keep Global Setting</source>
+        <target state="needs-translation">Keep Global Setting</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_preservecase.I.1">
+        <source>Force Like Displayed</source>
+        <target state="needs-translation">Force Like Displayed</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_preservecase.I.2">
+        <source>Force Like In Glossary</source>
+        <target state="needs-translation">Force Like In Glossary</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_regexp">
+        <source>Item Recognition</source>
+        <target state="needs-translation">Item Recognition</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_regexp.I.0">
+        <source>Complete Word (Default)</source>
+        <target state="needs-translation">Complete Word (Default)</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_regexp.I.1">
+        <source>Word Part</source>
+        <target state="needs-translation">Word Part</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_global">
+        <source>Replacement</source>
+        <target state="needs-translation">Replacement</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_global.I.0">
+        <source>Default</source>
+        <target state="needs-translation">Default</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.force_global.I.1">
+        <source>Override: Force In Whole Global Content</source>
+        <target state="needs-translation">Override: Force In Whole Global Content</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.tabs.advanced">
+        <source>Advanced</source>
+        <target state="needs-translation">Advanced</target>
+      </trans-unit>
+      <trans-unit id="tx_a21glossary_main.tabs.settings">
+        <source>Settings</source>
+        <target state="needs-translation">Settings</target>
+      </trans-unit>
+      <trans-unit id="plugins.pi1.title">
+        <source>Glossary overview</source>
+        <target state="needs-translation">Glossary overview</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

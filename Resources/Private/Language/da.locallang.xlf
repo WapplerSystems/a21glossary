@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" datatype="plaintext" target-language="de">
+  <file source-language="en" datatype="plaintext" target-language="da">
     <header/>
     <body>
       <trans-unit id="label_acronym" approved="yes">
         <source>acronym of</source>
-        <target state="final">Akronym von</target>
+        <target state="final">akronym af</target>
       </trans-unit>
       <trans-unit id="abbreviation_acronym" approved="yes">
         <source>abbreviation of</source>
-        <target state="final">Abkürzung von</target>
+        <target state="final">forkortelse af</target>
       </trans-unit>
       <trans-unit id="definition_acronym" approved="yes">
         <source>definition</source>
-        <target state="final">Definition</target>
+        <target state="final">definition</target>
       </trans-unit>
       <trans-unit id="all_chars" approved="yes">
         <source>Entire glossary</source>
-        <target state="final">Gesamtes Glossar</target>
+        <target state="final">Hele ordbogen</target>
       </trans-unit>
       <trans-unit id="search" approved="yes">
         <source>Search for term:</source>
-        <target state="final">Begriff suchen:</target>
+        <target state="final">Søg efter udtryk:</target>
       </trans-unit>
       <trans-unit id="search_button" approved="yes">
         <source>Search</source>
-        <target state="final">Suchen</target>
+        <target state="final">Søg</target>
       </trans-unit>
       <trans-unit id="type.span" approved="yes">
         <source>Item for:</source>
-        <target state="final">Begriff für:</target>
+        <target state="final">Element for:</target>
       </trans-unit>
       <trans-unit id="type.dfn" approved="yes">
         <source>Definition:</source>
@@ -37,23 +37,23 @@
       </trans-unit>
       <trans-unit id="type.acronym" approved="yes">
         <source>Acronym:</source>
-        <target state="final">Akronym für:</target>
+        <target state="final">Akronym:</target>
       </trans-unit>
       <trans-unit id="type.abbr" approved="yes">
         <source>Abbreviation:</source>
-        <target state="final">Abkürzung für:</target>
+        <target state="final">Forkortelse:</target>
       </trans-unit>
       <trans-unit id="paginate_record_count" approved="yes">
         <source>Showing items %d to %d</source>
-        <target state="final">Zeige Eintrag %d bis %d</target>
+        <target state="final">Viser elementerne %d til %d</target>
       </trans-unit>
       <trans-unit id="paginate_previous" approved="yes">
         <source>Previous</source>
-        <target state="final">Vorherige</target>
+        <target state="final">Forrige</target>
       </trans-unit>
       <trans-unit id="paginate_next" approved="yes">
         <source>Previous</source>
-        <target state="final">Nächste</target>
+        <target state="final">Forrige</target>
       </trans-unit>
     </body>
   </file>

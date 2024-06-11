@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" datatype="plaintext" target-language="de">
+  <file source-language="en" datatype="plaintext" target-language="da">
     <header/>
     <body>
       <trans-unit id="tx_a21glossary_main" approved="yes">
         <source>Glossary</source>
-        <target state="final">Glossar</target>
+        <target state="final">Ordbog</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.short" approved="yes">
         <source>Short form</source>
-        <target state="final">Kurzform</target>
+        <target state="final">Kort form</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.shortcut" approved="yes">
         <source>Alternative shortcut</source>
-        <target state="final">Alternatives Kürzel</target>
+        <target state="final">Alternativ genvej</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.longversion" approved="yes">
         <source>Long text</source>
-        <target state="final">Langer Text</target>
+        <target state="final">Lang tekst</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.shorttype.I.0" approved="yes">
         <source>Language</source>
-        <target state="final">Sprache</target>
+        <target state="final">Sprog</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.shorttype.I.1" approved="yes">
         <source>Definition</source>
@@ -29,151 +29,151 @@
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.shorttype.I.2" approved="yes">
         <source>Acronym, e.g. NATO</source>
-        <target state="final">Akronym, z.B. NATO</target>
+        <target state="final">Akronym, f.eks. NATO</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.shorttype.I.3" approved="yes">
         <source>Abbreviation, e.g. etc.</source>
-        <target state="final">Abkürzung, z.B. etc.</target>
+        <target state="final">Forkortelse, f.eks. osv.</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.shorttype" approved="yes">
         <source>Type</source>
-        <target state="final">Typ</target>
+        <target state="final">Type</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.0" approved="yes">
         <source>Not Set (All Languages)</source>
-        <target state="final">Nicht gesetzt (alle Sprachen)</target>
+        <target state="final">Ikke angivet (alle sprog)</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.1" approved="yes">
         <source>English</source>
-        <target state="final">Englisch</target>
+        <target state="final">Engelsk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.2" approved="yes">
         <source>French</source>
-        <target state="final">Französisch</target>
+        <target state="final">Fransk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.3" approved="yes">
         <source>German</source>
-        <target state="final">Deutsch</target>
+        <target state="final">Tysk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.4" approved="yes">
         <source>Italian</source>
-        <target state="final">Italienisch</target>
+        <target state="final">Italiensk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.5" approved="yes">
         <source>Spain</source>
-        <target state="final">Spanisch</target>
+        <target state="final">Spanien</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.6" approved="yes">
         <source>Portuguese</source>
-        <target state="final">Portugiesisch</target>
+        <target state="final">Portugisisk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.7" approved="yes">
         <source>Russian</source>
-        <target state="final">Russisch</target>
+        <target state="final">Russisk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.8" approved="yes">
         <source>Chinese</source>
-        <target state="final">Chinesisch</target>
+        <target state="final">Kinesisk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.9" approved="yes">
         <source>Japanese</source>
-        <target state="final">Japanisch</target>
+        <target state="final">Japansk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.10" approved="yes">
         <source>Modern Greek</source>
-        <target state="final">Neugriechisch</target>
+        <target state="final">Moderne græsk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.11" approved="yes">
         <source>Ancient Greek</source>
-        <target state="final">Altgriechisch</target>
+        <target state="final">Oldgræsk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.12" approved="yes">
         <source>Latin</source>
-        <target state="final">Lateinisch</target>
+        <target state="final">Latinsk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language.I.13" approved="yes">
         <source>Hebrew</source>
-        <target state="final">Hebräisch</target>
+        <target state="final">Hæbraisk</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.language" approved="yes">
         <source>Differing language of item</source>
-        <target state="final">Abweichende Sprache des Begriffs</target>
+        <target state="final">Forskellige sprog for element</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.description" approved="yes">
         <source>Description</source>
-        <target state="final">Beschreibung</target>
+        <target state="final">Beskrivelse</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.link" approved="yes">
         <source>External Link (Override, Instead Of Glossary Page)</source>
-        <target state="final">Externer Link (Überschreiben, statt Glossarseite)</target>
+        <target state="final">Eksternt link (tilsidesættelse, i stedet for ordbogsside)</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.exclude" approved="yes">
         <source>Exclude from frontend glossary list</source>
-        <target state="final">Von der Glossar-Liste im Frontend ausschließen</target>
+        <target state="final">Udeluk fra frontend ordbog</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_linking" approved="yes">
         <source>Linking</source>
-        <target state="final">Verknüpfen</target>
+        <target state="final">Linkning</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_linking.I.0" approved="yes">
         <source>Keep Global Setting</source>
-        <target state="final">Wie global voreingestellt</target>
+        <target state="final">Behold global indstilling</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_linking.I.1" approved="yes">
         <source>Force Linking</source>
-        <target state="final">Link erzwingen</target>
+        <target state="final">Gennemtving linkning</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_linking.I.2" approved="yes">
         <source>Force No Linking</source>
-        <target state="final">Keine Verknüpfung erzwingen</target>
+        <target state="final">Gennemtving ingen linking</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_case" approved="yes">
         <source>Case Sensitivity</source>
-        <target state="final">Groß-/Kleinschreibung beachten</target>
+        <target state="final">Store og små bogstaver</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_case.I.0" approved="yes">
         <source>Keep Global Setting</source>
-        <target state="final">Globale Einstellung beibehalten</target>
+        <target state="final">Behold global indstilling</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_case.I.1" approved="yes">
         <source>Force Insensitive</source>
-        <target state="final">Erzwinge Nichtbeachtung</target>
+        <target state="final">Gennemtving ikke-sensitiv</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_case.I.2" approved="yes">
         <source>Force Sensitive</source>
-        <target state="final">Erzwinge Beachtung</target>
+        <target state="final">Gennemtving sensitiv</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_preservecase" approved="yes">
         <source>Preserve Displayed Case</source>
-        <target state="final">Beibehaltung von Gross-/Kleinschreibung</target>
+        <target state="final">Bevar viste case</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_preservecase.I.0" approved="yes">
         <source>Keep Global Setting</source>
-        <target state="final">Globale Einstellung beibehalten</target>
+        <target state="final">Behold global indstilling</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_preservecase.I.1" approved="yes">
         <source>Force Like Displayed</source>
-        <target state="final">Erzwinge wie im Inhalt geschrieben</target>
+        <target state="final">Gennemtving som vist</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_preservecase.I.2" approved="yes">
         <source>Force Like In Glossary</source>
-        <target state="final">Erzwinge wie im Glossar hinterlegt</target>
+        <target state="final">Gennemtving som i ordbog</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_regexp" approved="yes">
         <source>Item Recognition</source>
-        <target state="final">Worterkennung</target>
+        <target state="final">Element anerkendelse</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_regexp.I.0" approved="yes">
         <source>Complete Word (Default)</source>
-        <target state="final">Komplettes Wort (Default)</target>
+        <target state="final">Komplet ord (standard)</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_regexp.I.1" approved="yes">
         <source>Word Part</source>
-        <target state="final">Wortteil</target>
+        <target state="final">Orddel</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_global" approved="yes">
         <source>Replacement</source>
-        <target state="final">Ersatz</target>
+        <target state="final">Erstatning</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_global.I.0" approved="yes">
         <source>Default</source>
@@ -181,19 +181,19 @@
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.force_global.I.1" approved="yes">
         <source>Override: Force In Whole Global Content</source>
-        <target state="final">Erzwinge im gesamten Content (Nicht empfohlen)</target>
+        <target state="final">Overskriv: Gennemtving i globalt indhold</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.tabs.advanced" approved="yes">
         <source>Advanced</source>
-        <target state="final">Erweitert</target>
+        <target state="final">Avanceret</target>
       </trans-unit>
       <trans-unit id="tx_a21glossary_main.tabs.settings" approved="yes">
         <source>Settings</source>
-        <target state="final">Einstellungen</target>
+        <target state="final">Indstillinger</target>
       </trans-unit>
       <trans-unit id="plugins.pi1.title" approved="yes">
         <source>Glossary overview</source>
-        <target state="final">Glossarübersicht</target>
+        <target state="final">Ordlbogsoversigt</target>
       </trans-unit>
     </body>
   </file>
