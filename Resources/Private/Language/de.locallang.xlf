@@ -3,57 +3,57 @@
   <file source-language="en" datatype="plaintext" target-language="de">
     <header/>
     <body>
-      <trans-unit id="label_acronym">
+      <trans-unit id="label_acronym" approved="yes">
         <source>acronym of</source>
-        <target state="translated">Akronym von</target>
+        <target state="final">Akronym von</target>
       </trans-unit>
-      <trans-unit id="abbreviation_acronym">
+      <trans-unit id="abbreviation_acronym" approved="yes">
         <source>abbreviation of</source>
-        <target state="translated">Abkürzung von</target>
+        <target state="final">Abkürzung von</target>
       </trans-unit>
-      <trans-unit id="definition_acronym">
+      <trans-unit id="definition_acronym" approved="yes">
         <source>definition</source>
-        <target state="translated">Definition</target>
+        <target state="final">Definition</target>
       </trans-unit>
-      <trans-unit id="all_chars">
+      <trans-unit id="all_chars" approved="yes">
         <source>Entire glossary</source>
-        <target state="translated">Gesamtes Glossar</target>
+        <target state="final">Gesamtes Glossar</target>
       </trans-unit>
-      <trans-unit id="search">
+      <trans-unit id="search" approved="yes">
         <source>Search for term:</source>
-        <target state="translated">Begriff suchen:</target>
+        <target state="final">Begriff suchen:</target>
       </trans-unit>
-      <trans-unit id="search_button">
+      <trans-unit id="search_button" approved="yes">
         <source>Search</source>
-        <target state="translated">Suchen</target>
+        <target state="final">Suchen</target>
       </trans-unit>
-      <trans-unit id="type.span">
+      <trans-unit id="type.span" approved="yes">
         <source>Item for:</source>
-        <target state="translated">Begriff für:</target>
+        <target state="final">Begriff für:</target>
       </trans-unit>
-      <trans-unit id="type.dfn">
+      <trans-unit id="type.dfn" approved="yes">
         <source>Definition:</source>
-        <target state="translated">Definition:</target>
+        <target state="final">Definition:</target>
       </trans-unit>
-      <trans-unit id="type.acronym">
+      <trans-unit id="type.acronym" approved="yes">
         <source>Acronym:</source>
-        <target state="translated">Akronym für:</target>
+        <target state="final">Akronym für:</target>
       </trans-unit>
-      <trans-unit id="type.abbr">
+      <trans-unit id="type.abbr" approved="yes">
         <source>Abbreviation:</source>
-        <target state="translated">Abkürzung für:</target>
+        <target state="final">Abkürzung für:</target>
       </trans-unit>
-      <trans-unit id="paginate_record_count">
+      <trans-unit id="paginate_record_count" approved="yes">
         <source>Showing items %d to %d</source>
-        <target state="translated">Zeige Eintrag %d bis %d</target>
+        <target state="final">Zeige Eintrag %d bis %d</target>
       </trans-unit>
-      <trans-unit id="paginate_previous">
+      <trans-unit id="paginate_previous" approved="yes">
         <source>Previous</source>
-        <target state="translated">Vorherige</target>
+        <target state="final">Vorherige</target>
       </trans-unit>
-      <trans-unit id="paginate_next">
+      <trans-unit id="paginate_next" approved="yes">
         <source>Previous</source>
-        <target state="translated">Nächste</target>
+        <target state="final">Nächste</target>
       </trans-unit>
     </body>
   </file>
