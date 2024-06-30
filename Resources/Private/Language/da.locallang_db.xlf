@@ -7,6 +7,10 @@
         <source>Glossary</source>
         <target state="final">Ordbog</target>
       </trans-unit>
+      <trans-unit id="tx_a21glossary_main.entry" approved="yes">
+        <source>Glossary entry</source>
+        <target state="final">Ordbogs-indlæg</target>
+      </trans-unit>
       <trans-unit id="tx_a21glossary_main.short" approved="yes">
         <source>Short form</source>
         <target state="final">Kort form</target>
