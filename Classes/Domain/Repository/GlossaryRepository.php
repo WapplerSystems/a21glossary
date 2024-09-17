@@ -21,6 +21,8 @@ class GlossaryRepository extends Repository
      */
     public function findAllForIndex()
     {
+        $previousOrderings = $this->defaultOrderings;
+        $this->defaultOrderings = [];
         /** @var Query $query */
         $query = $this->createQuery();
         // Get the query parser via object manager to use dependency injection
@@ -30,8 +32,9 @@ class GlossaryRepository extends Repository
         // Add our select and group by
         $queryBuilder->selectLiteral('substr(' . $queryBuilder->quoteIdentifier('short') . ', 1, 1) AS ' . $queryBuilder->quoteIdentifier('char'))
             ->groupBy('char');
-
-        return $query->statement($queryBuilder)->execute(true);
+        $result = $query->statement($queryBuilder)->execute(true);
+        $this->defaultOrderings = $previousOrderings;
+        return $result;
     }
 
     /**
