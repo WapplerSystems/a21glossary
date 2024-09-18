@@ -31,7 +31,8 @@ class GlossaryRepository extends Repository
             ->getQueryBuilderForTable('tx_a21glossary_main');
         $queryBuilder->from('tx_a21glossary_main')
             ->selectLiteral('substr(' . $queryBuilder->quoteIdentifier('short') . ', 1, 1) AS ' . $queryBuilder->quoteIdentifier('char'))
-            ->groupBy('char');
+            ->groupBy('char')
+            ->orderBy('char', 'ASC');
 
         return $query->statement($queryBuilder)->execute(true);
     }
