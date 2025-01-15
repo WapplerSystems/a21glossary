@@ -16,7 +16,6 @@ final class AfterCacheableContentIsGeneratedEventListener
 
         $content = $event->getController()->content;
 
-
         $tsConfig = GeneralUtility::makeInstance(ConfigurationManagerInterface::class)
             ->getConfiguration(
                 ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT
@@ -25,7 +24,7 @@ final class AfterCacheableContentIsGeneratedEventListener
         $config = $tsConfig['plugin.']['tx_a21glossary.']['settings.'] ?? [];
 
         $processor = GeneralUtility::makeInstance(Processor::class);
-        $event->getController()->content = $processor->main($content, $config);
+        $event->getController()->content = $processor->main($content, $event->getRequest(), $config);
 
 
     }

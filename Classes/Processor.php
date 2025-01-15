@@ -26,11 +26,13 @@ namespace WapplerSystems\A21glossary;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Html\HtmlParser;
+use TYPO3\CMS\Core\Routing\PageArguments;
+use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
  * a21glossary: all found words in content wich correspond with the glossary entries
@@ -55,21 +57,10 @@ class Processor
     protected $replaceGlobal = [];
     protected $replace = [];
 
-    /** @var int */
-    protected $pageId = 0;
-
-    /** @var TypoScriptFrontendController */
-    protected $tsFeController;
-
     protected $config = [];
 
     public function __construct(array $overrideConf = [])
     {
-
-        $this->tsFeController = $GLOBALS['TSFE'];
-
-        $this->pageId = $GLOBALS['TSFE']->id;
-
         $this->config['glossaryWHAT'] = 'ALL';
     }
 
@@ -105,10 +96,12 @@ class Processor
      * @return string the modified content
      * @throws \InvalidArgumentException
      */
-    public function main(string $content, array $config = []): string
+    public function main(string $content, ServerRequestInterface $request, array $config = []): string
     {
 
         $this->config = array_merge($this->config, $config);
+        /** @var PageArguments $routing */
+        $routing = $request->getAttribute('routing');
 
         // return right now if the wrong page type was chosen
         if (!isset($this->config['typeList'])) {
@@ -122,17 +115,19 @@ class Processor
         $typeList = ('' !== $typeList) ? $typeList : '0';
         $typeList = @explode(',', $typeList);
 
-        if (!\in_array((int)GeneralUtility::_GP('type'), $typeList)) {
+        if (!in_array($routing->getPageType(), $typeList, true)) {
             return $content;
         }
 
-        // load the whole configuration
-        $language = $this->tsFeController->getLanguage();
+        /** @var SiteLanguage $language */
+        $language = $request->getAttribute('language');
         $renderCharset = 'utf-8';
 
         // extract and escape get-vars
-        if (GeneralUtility::_GP('tx_a21glossary')) {
-            $this->piVars = GeneralUtility::_GP('tx_a21glossary');
+        $queryParams = $request->getQueryParams();
+
+        if ($queryParams['tx_a21glossary'] ?? false) {
+            $this->piVars = $queryParams['tx_a21glossary'];
             if (\count($this->piVars)) {
                 self::addSlashesOnArray($this->piVars);
             }
@@ -147,11 +142,11 @@ class Processor
             return $content;
         }
 
-        if (is_string($this->config['excludePages']) && GeneralUtility::inList($this->config['excludePages'], $this->pageId)) {
+        if (is_string($this->config['excludePages']) && GeneralUtility::inList($this->config['excludePages'], $routing->getPageId())) {
             return $content;
         }
 
-        $items = $this->fetchGlossaryItems($this->config['pidList']);
+        $items = $this->fetchGlossaryItems($this->config['pidList'], $language);
 
         if (!$this->count['used']) {
             return $content;
@@ -170,7 +165,6 @@ class Processor
             }
         }
 
-
         // prepare items
         foreach ($items as $item) {
 
@@ -179,7 +173,7 @@ class Processor
                 $cObj->data = $item;
 
                 // set item language
-                if ($item['language'] && $language->getTwoLetterIsoCode() != $item['language']) {
+                if ($item['language'] && $language->getLocale()->getLanguageCode() != $item['language']) {
                     $lang = (((int)($this->config['noLang'] ?? 0)) ? '' : (' lang="' . $item['language'] . '"'))
                         . (((int)($this->config['xmlLang'] ?? 0)) ? (' xml:lang="' . $item['language'] . '"') : '');
                 } else {
@@ -192,8 +186,8 @@ class Processor
                 $title = $item['longversion'] ? (' title="' . $titleText . '"') : '';
 
                 // those can be retrieved later with stdwrap
-                $this->tsFeController->register['lang'] = $lang;
-                $this->tsFeController->register['title'] = $title;
+                //$this->tsFeController->register['lang'] = $lang;
+                //$this->tsFeController->register['title'] = $title;
 
                 // decide replacement linking
                 if ($item['force_linking']) {
@@ -391,7 +385,7 @@ class Processor
      * @param string $pidList idlists set by configuraion
      * @return array glossary items
      */
-    protected function fetchGlossaryItems(string $pidList): array
+    protected function fetchGlossaryItems(string $pidList, SiteLanguage $language): array
     {
         // -1 means: ignore pids
         if ('' === trim($pidList)) {
@@ -400,7 +394,6 @@ class Processor
 
         // fetch glossary items
         $aPidList = GeneralUtility::intExplode(',', $pidList);
-        $language = $this->tsFeController->getLanguage();
         $languageUid = $language->getLanguageId();
 
         $items = [];
