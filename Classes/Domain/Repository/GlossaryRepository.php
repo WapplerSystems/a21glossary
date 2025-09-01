@@ -22,7 +22,19 @@ class GlossaryRepository extends Repository
         'short' => QueryInterface::ORDER_ASCENDING
     ];
 
-    public function findAllForIndex()
+    public function findAllFiltered(bool $showAbbreviationsOnlyInGlossaryList)
+    {
+        $query = $this->createQuery();
+
+        if ($showAbbreviationsOnlyInGlossaryList) {
+            $constraints = [$query->equals('shorttype', 'abbr')];
+            $query->matching($constraints[0]);
+        }
+
+        return $query->execute();
+    }
+
+    public function findAllForIndex(bool $showAbbreviationsOnlyInGlossaryList)
     {
         /** @var Query $query */
         $query = $this->createQuery();
@@ -34,42 +46,70 @@ class GlossaryRepository extends Repository
             ->groupBy('char')
             ->orderBy('char', 'ASC');
 
+        if ($showAbbreviationsOnlyInGlossaryList) {
+            $queryBuilder->where(
+                $queryBuilder->expr()->eq(
+                    'shorttype',
+                    $queryBuilder->createNamedParameter('abbr')
+                )
+            );
+        }
+
         return $query->statement($queryBuilder)->execute(true);
     }
 
     /**
      * @param string $char
+     * @param bool $showAbbreviationsOnlyInGlossaryList 
      *
      * @return Glossary[]|QueryResultInterface
      * @throws InvalidQueryException
      */
-    public function findAllWithChar(string $char): QueryResultInterface|array
+    public function findAllWithChar(string $char, bool $showAbbreviationsOnlyInGlossaryList): QueryResultInterface|array
     {
         $query = $this->createQuery();
-        $query->matching(
-            $query->like('short', $char . '%')
-        );
+        
+        $constraints = [$query->like('short', $char . '%')];
+
+        if ($showAbbreviationsOnlyInGlossaryList) {
+            $constraints[] = $query->equals('shorttype', 'abbr');
+        }
+
+        if (count($constraints) > 1) {
+            $query->matching($query->logicalAnd(...$constraints));
+        } else {
+            $query->matching($constraints[0]);
+        }
 
         return $query->execute();
     }
 
     /**
      * @param string $q
+     * @param bool $showAbbreviationsOnlyInGlossaryList 
      *
      * @return Glossary[]|QueryResultInterface
      * @throws InvalidQueryException
      */
-    public function findAllWithQuery(string $q): QueryResultInterface|array
+    public function findAllWithQuery(string $q, bool $showAbbreviationsOnlyInGlossaryList): QueryResultInterface|array
     {
         $query = $this->createQuery();
-        $query->matching(
-            $query->logicalOr(
-                $query->like('short', '%' . $q . '%'),
-                $query->like('shortcut', '%' . $q . '%'),
-                $query->like('longversion', '%' . $q . '%'),
-                $query->like('description', '%' . $q . '%')
-            )
-        );
+
+        $orConstraints = [$query->like('short', '%' . $q . '%'), $query->like('shortcut', '%' . $q . '%'), $query->like('longversion', '%' . $q . '%'), $query->like('description', '%' . $q . '%') ];
+
+        if ($showAbbreviationsOnlyInGlossaryList) {
+            $query->matching(
+                $query->logicalAnd(
+                    $query->logicalOr(...$orConstraints),
+                    $query->equals('shorttype', 'abbr')
+                )
+            );
+        }
+        else {
+            $query->matching(
+                $query->logicalOr(...$orConstraints)
+            );
+        }
 
         return $query->execute();
     }

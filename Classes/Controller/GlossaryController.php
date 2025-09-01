@@ -27,10 +27,14 @@ class GlossaryController extends ActionController
      */
     public function indexAction($char = null): ResponseInterface
     {
+        $showAbbreviationsOnlyInGlossaryList = isset($this->settings['showAbbreviationsOnlyInGlossaryList'])
+             ? (bool)$this->settings['showAbbreviationsOnlyInGlossaryList']
+             : false;
+        
         if (!empty($char)) {
-            $glossaryItems = $this->glossaryRepository->findAllWithChar($char);
+            $glossaryItems = $this->glossaryRepository->findAllWithChar($char, $showAbbreviationsOnlyInGlossaryList);
         } else {
-            $glossaryItems = $this->glossaryRepository->findAll();
+            $glossaryItems = $this->glossaryRepository->findAllFiltered($showAbbreviationsOnlyInGlossaryList);
         }
 
         $paginationConfiguration = $this->settings['paginate'] ?? [];
@@ -48,7 +52,7 @@ class GlossaryController extends ActionController
             $pagination = GeneralUtility::makeInstance(SimplePagination::class, $paginator);
         }
 
-        $this->view->assign('index', $this->glossaryRepository->findAllForIndex());
+        $this->view->assign('index', $this->glossaryRepository->findAllForIndex($showAbbreviationsOnlyInGlossaryList));
         $this->view->assign('currentChar', $char);
         $this->view->assign('pagination', ['pagination' => $pagination, 'paginator' => $paginator]);
 
@@ -62,8 +66,12 @@ class GlossaryController extends ActionController
      */
     public function searchAction($q): ResponseInterface
     {
+        $showAbbreviationsOnlyInGlossaryList = isset($this->settings['showAbbreviationsOnlyInGlossaryList'])
+             ? (bool)$this->settings['showAbbreviationsOnlyInGlossaryList']
+             : false;
+
         $this->view->assign('q', $q);
-        $this->view->assign('items', $this->glossaryRepository->findAllWithQuery($q));
+        $this->view->assign('items', $this->glossaryRepository->findAllWithQuery($q, $showAbbreviationsOnlyInGlossaryList));
 
         return $this->htmlResponse();
     }
