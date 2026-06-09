@@ -22,7 +22,7 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@v2.37.1
         with:
           php-version: '7.4'
           extensions: intl, mbstring, xml, soap, zip, curl
