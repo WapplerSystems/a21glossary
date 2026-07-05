@@ -2,47 +2,46 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" datatype="plaintext">
 		<header/>
-
 		<body>
 			<trans-unit id="label_acronym">
-				<source>acronym of</source>
+				<target>acronyme de</target>
 			</trans-unit>
 			<trans-unit id="abbreviation_acronym">
-				<source>abbreviation of</source>
+				<target>abbréviation de</target>
 			</trans-unit>
 			<trans-unit id="definition_acronym">
-				<source>definition</source>
+				<target>définition</target>
 			</trans-unit>
 
 			<trans-unit id="all_chars">
-				<source>Entire glossary</source>
+				<target>Voir tout le glossaire</target>
 			</trans-unit>
 			<trans-unit id="search">
-				<source>Search for term:</source>
+				<target>Rechercher le terme :</target>
 			</trans-unit>
 			<trans-unit id="search_button">
-				<source>Search</source>
+				<target>Recherche</target>
 			</trans-unit>
 			<trans-unit id="type.span">
-				<source>Item for:</source>
+				<target>Élément pour :</target>
 			</trans-unit>
 			<trans-unit id="type.dfn">
-				<source>Definition:</source>
+				<target>Définition :</target>
 			</trans-unit>
 			<trans-unit id="type.acronym">
-				<source>Acronym:</source>
+				<target>Acronyme de :</target>
 			</trans-unit>
 			<trans-unit id="type.abbr">
-				<source>Abbreviation:</source>
+				<target>Abbréviation de :</target>
 			</trans-unit>
 			<trans-unit id="paginate_record_count">
-				<source>Showing items %d to %d</source>
+				<target>Affichage des éléments %d à %d</target>
 			</trans-unit>
 			<trans-unit id="paginate_previous">
-				<source>Previous</source>
+				<target>Précédent</target>
 			</trans-unit>
 			<trans-unit id="paginate_next">
-				<source>Next</source>
+				<target>Suivant</target>
 			</trans-unit>
 		</body>
 	</file>

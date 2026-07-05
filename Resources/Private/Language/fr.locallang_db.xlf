@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext">
+		<header/>
+		<body>
+			<trans-unit id="tx_a21glossary_main">
+				<target>Glossaire</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.entry">
+				<target>Entrée du glossaire</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.short">
+				<target>Forme courte</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.shortcut">
+				<target>Raccourcis alternatif</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.longversion">
+				<target>Version longue</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.shorttype.I.0">
+				<target>Langue</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.shorttype.I.1">
+				<target>Définition</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.shorttype.I.2">
+				<target>Acronyme, ex: OTAN</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.shorttype.I.3">
+				<target>Abbréviation, ex: etc.</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.shorttype">
+				<target>Type</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.0">
+				<target>Non défini (Toutes les langues)</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.1">
+				<target>Anglais</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.2">
+				<target>Français</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.3">
+				<target>Allemand</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.4">
+				<target>Italien</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.5">
+				<target>Espagnol</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.6">
+				<target>Portugais</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.7">
+				<target>Russe</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.8">
+				<target>Chinois</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.9">
+				<target>Japonais</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.10">
+				<target>Grec Moderne</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.11">
+				<target>Grec Ancien</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.12">
+				<target>Latin</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language.I.13">
+				<target>Hébreu</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.language">
+				<target>Langue alternative de l'élément</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.description">
+				<target>Description</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.link">
+				<target>Lien externe (Surcharge, à la place de la page du glossaire)</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.exclude">
+				<target>Exclure de la page frontend du glossaire</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_linking">
+				<target>Forcer le lien</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_linking.I.0">
+				<target>Conserver les paramètres globaux</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_linking.I.1">
+				<target>Forcer le lien</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_linking.I.2">
+				<target>Forcer la désactivation du lien</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_case">
+				<target>Sensibilité à la casse</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_case.I.0">
+				<target>Conserver les paramètres globaux</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_case.I.1">
+				<target>Forcer l'insensibilité</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_case.I.2">
+				<target>Forcer la sensibilité</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_preservecase">
+				<target>Préserver la casse affichée</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_preservecase.I.0">
+				<target>Conserver les paramètres globaux</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_preservecase.I.1">
+				<target>Forcer l'affichage courant</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_preservecase.I.2">
+				<target>Forcer l'affichage du glossaire</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_regexp">
+				<target>Reconnaissance de l'élément</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_regexp.I.0">
+				<target>Mot complet (par défaut)</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_regexp.I.1">
+				<target>Partie du mot</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_global">
+				<target>Remplacement</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_global.I.0">
+				<target>Par défaut</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.force_global.I.1">
+				<target>Surcharge: Forcer dans la globalité du contenu</target>
+			</trans-unit>
+
+			<trans-unit id="tx_a21glossary_main.tabs.advanced">
+				<target>Avancé</target>
+			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.tabs.settings">
+				<target>Paramètres</target>
+			</trans-unit>
+
+			<trans-unit id="plugins.pi1.title">
+				<target>Aperçu du glossaire</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
