@@ -13,7 +13,7 @@
 $EM_CONF['a21glossary'] = [
     'title' => 'A21 Glossary',
     'description' => 'A21 Glossary - automatic conversion of all abbreviations and acronyms in the special tags for accessibility issues',
-    'version' => '13.0.0',
+    'version' => '13.0.1',
     'category' => 'fe',
     'constraints' => [
         'depends' => [

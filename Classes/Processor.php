@@ -291,9 +291,7 @@ class Processor
         // add predefined includes
         /* TODO: Remove or improve */
         if ($this->config['glossaryWHAT'] === 'ALL') {
-            $this->searchMarkers[] = '<body>';
-            $this->replaceMarkers[] = '<body><a21glossary>';
-
+            // the start marker is set by regex in the replacement, so that <body class="…"> matches as well
             $this->searchMarkers[] = '</body>';
             $this->replaceMarkers[] = '</a21glossary></body>';
         }
@@ -343,6 +341,9 @@ class Processor
         if ($this->count['local']) {
 
             // set splitmarkers
+            if ($this->config['glossaryWHAT'] === 'ALL') {
+                $body = (string)preg_replace('#<body\b[^>]*>#i', '$0<a21glossary>', $body, 1);
+            }
             $body = str_replace($this->searchMarkers, $this->replaceMarkers, $body);
 
             // replace local entries by recursive content splitting
