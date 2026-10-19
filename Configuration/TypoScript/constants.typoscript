@@ -77,7 +77,7 @@ plugin.tx_a21glossary {
     #  cat=plugin.tx_a21glossary; type=comment; label=Enable anchor solution: Use anchored links instead of linking to the details page
     commentAnchor = #
 
-    excludeTags = acronym,abbr,dfn,h1,h2,h3,h4,h5,h6,input,pre,script
+    excludeTags = a,acronym,abbr,dfn,h1,h2,h3,h4,h5,h6,input,textarea,select,option,button,label,code,pre,script
 
     # cat=plugin.tx_a21glossary; type=options[body Tag=body,Markers=markers]; label=Icon rendering: Render icons as SVG
     workIn = body
