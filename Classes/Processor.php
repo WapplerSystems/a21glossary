@@ -28,6 +28,7 @@ namespace WapplerSystems\A21glossary;
 
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer;
 use TYPO3\CMS\Core\Html\HtmlParser;
 use TYPO3\CMS\Core\Routing\PageArguments;
 use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
@@ -403,6 +404,7 @@ class Processor
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_a21glossary_main');
 
         $query = $connection->createQueryBuilder();
+        $query->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
         $query = $query->select('*')->from('tx_a21glossary_main')
             ->where(
                 $query->expr()->in('pid', $aPidList),

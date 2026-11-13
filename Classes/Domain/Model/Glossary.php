@@ -41,6 +41,8 @@ class Glossary extends AbstractEntity
      */
     protected $link;
 
+    protected bool $exclude = false;
+
     /**
      * @return string
      */
@@ -151,5 +153,15 @@ class Glossary extends AbstractEntity
     public function setLink(string $link): void
     {
         $this->link = $link;
+    }
+
+    public function isExclude(): bool
+    {
+        return $this->exclude;
+    }
+
+    public function setExclude(bool $exclude): void
+    {
+        $this->exclude = $exclude;
     }
 }

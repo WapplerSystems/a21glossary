@@ -1,0 +1,48 @@
+categories:
+  a21glossary: ~
+  a21glossary.replacement:
+    parent: a21glossary
+  a21glossary.linking:
+    parent: a21glossary
+
+settings:
+  plugin.tx_a21glossary.settings.storagePage:
+    default: ''
+    type: string
+    category: a21glossary
+  plugin.tx_a21glossary.settings.glossaryPage:
+    default: ''
+    type: string
+    category: a21glossary
+  plugin.tx_a21glossary.settings.typeList:
+    default: '0'
+    type: string
+    category: a21glossary.replacement
+  plugin.tx_a21glossary.settings.caseSensitive:
+    default: true
+    type: bool
+    category: a21glossary.replacement
+  plugin.tx_a21glossary.settings.preserveCase:
+    default: false
+    type: bool
+    category: a21glossary.replacement
+  plugin.tx_a21glossary.settings.patternModifiers:
+    default: 'su'
+    type: string
+    category: a21glossary.replacement
+  plugin.tx_a21glossary.settings.excludeTags:
+    default: 'a,acronym,abbr,dfn,h1,h2,h3,h4,h5,h6,input,textarea,select,option,button,label,code,pre,script'
+    type: string
+    category: a21glossary.replacement
+  plugin.tx_a21glossary.settings.keepGlossaryMarkers:
+    default: false
+    type: bool
+    category: a21glossary.replacement
+  plugin.tx_a21glossary.settings.linkToGlossary:
+    default: 'acronym,abbr,dfn'
+    type: string
+    category: a21glossary.linking
+  plugin.tx_a21glossary.settings.linkOnlyIfNotEmpty:
+    default: 'description'
+    type: string
+    category: a21glossary.linking
