@@ -153,6 +153,9 @@
 			<trans-unit id="plugins.pi1.title">
 				<source>Glossary overview</source>
 			</trans-unit>
+			<trans-unit id="plugins.pi1.description">
+				<source>Show glossary entries</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

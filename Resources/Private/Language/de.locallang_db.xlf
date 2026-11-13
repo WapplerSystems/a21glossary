@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext">
+	<file source-language="en" target-language="de" datatype="plaintext">
 		<header/>
 
 		<body>
@@ -201,6 +201,10 @@
 			<trans-unit id="plugins.pi1.title">
 				<source>Glossary overview</source>
 				<target>Glossarübersicht</target>
+			</trans-unit>
+			<trans-unit id="plugins.pi1.description">
+				<source>Show glossary entries</source>
+				<target>Zeigt die Glossareinträge an</target>
 			</trans-unit>
 		</body>
 	</file>

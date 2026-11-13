@@ -9,7 +9,7 @@ ExtensionUtility::registerPlugin(
     'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xlf:plugins.pi1.title',
     'tx-a21glossary',
     'plugins',
-    'Show glossary entries'
+    'LLL:EXT:a21glossary/Resources/Private/Language/locallang_db.xlf:plugins.pi1.description'
 );
 
 
