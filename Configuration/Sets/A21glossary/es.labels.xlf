@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="EXT:a21glossary/Configuration/Sets/A21glossary/labels.xlf" product-name="a21glossary">
+    <header/>
+    <body>
+      <trans-unit id="label">
+        <source>A21 Glossary</source>
+        <target>A21 Glosario</target>
+      </trans-unit>
+      <trans-unit id="categories.a21glossary">
+        <source>A21 Glossary</source>
+        <target>A21 Glosario</target>
+      </trans-unit>
+      <trans-unit id="categories.a21glossary.replacement">
+        <source>Replacement in page content</source>
+        <target>Sustitución en el contenido de la página</target>
+      </trans-unit>
+      <trans-unit id="categories.a21glossary.linking">
+        <source>Linking</source>
+        <target>Vinculación</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.storagePage">
+        <source>Storage pages</source>
+        <target>Páginas de almacenamiento</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.storagePage">
+        <source>Comma separated list of page IDs where the glossary entries are stored</source>
+        <target>Lista separada por comas de IDs de página donde se almacenan las entradas del glosario</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.glossaryPage">
+        <source>Glossary page</source>
+        <target>Página de glosario</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.glossaryPage">
+        <source>Page ID of the page with the glossary plugin; found terms link to it, and no replacement takes place on it</source>
+        <target>ID de página de la página con el plugin de glosario; los términos encontrados enlazan a ella, y en ella no se realiza sustitución</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.typeList">
+        <source>Page types</source>
+        <target>Tipos de página</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.typeList">
+        <source>Comma separated list of page types (typeNum) in which glossary terms are replaced</source>
+        <target>Lista separada por comas de tipos de página (typeNum) en los que se sustituyen los términos del glosario</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.caseSensitive">
+        <source>Case sensitive</source>
+        <target>Distinguir mayúsculas y minúsculas</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.caseSensitive">
+        <source>Search for glossary terms case sensitively (the setting of a single entry takes precedence)</source>
+        <target>Buscar términos del glosario distinguiendo entre mayúsculas y minúsculas (la configuración de una entrada individual tiene prioridad)</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.preserveCase">
+        <source>Preserve case</source>
+        <target>Conservar mayúsculas/minúsculas</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.preserveCase">
+        <source>Keep the case of the word found in the content instead of the spelling of the entry</source>
+        <target>Conservar la escritura de la palabra encontrada en el contenido en lugar de la escritura de la entrada</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.patternModifiers">
+        <source>Pattern modifiers</source>
+        <target>Modificadores de patrón</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.patternModifiers">
+        <source>PCRE modifiers used when searching for glossary terms</source>
+        <target>Modificadores PCRE utilizados al buscar términos del glosario</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.excludeTags">
+        <source>Excluded HTML elements</source>
+        <target>Elementos HTML excluidos</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.excludeTags">
+        <source>Comma separated list of HTML elements in which no terms are replaced</source>
+        <target>Lista separada por comas de elementos HTML en los que no se sustituyen términos</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.keepGlossaryMarkers">
+        <source>Keep markers</source>
+        <target>Conservar marcadores</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.keepGlossaryMarkers">
+        <source>Keep the glossary markers as HTML comments in the source code</source>
+        <target>Conservar los marcadores del glosario como comentarios HTML en el código fuente</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.linkToGlossary">
+        <source>Linked element types</source>
+        <target>Tipos de elementos enlazados</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.linkToGlossary">
+        <source>Only link glossary terms of these element types</source>
+        <target>Enlazar únicamente términos del glosario de estos tipos de elementos</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.linkOnlyIfNotEmpty">
+        <source>Link only if not empty</source>
+        <target>Enlazar solo si no está vacío</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.linkOnlyIfNotEmpty">
+        <source>Only link a term if at least one of these fields has content</source>
+        <target>Enlazar un término solo si al menos uno de estos campos tiene contenido</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

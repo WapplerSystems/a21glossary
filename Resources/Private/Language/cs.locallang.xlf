@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" target-language="cs" datatype="plaintext" product-name="a21glossary">
+		<header/>
+		<body>
+			<trans-unit id="label_acronym">
+				<source>acronym of</source>
+				<target>akronym pro</target>
+			</trans-unit>
+			<trans-unit id="abbreviation_acronym">
+				<source>abbreviation of</source>
+				<target>zkratka pro</target>
+			</trans-unit>
+			<trans-unit id="definition_acronym">
+				<source>definition</source>
+				<target>definice</target>
+			</trans-unit>
+			<trans-unit id="all_chars">
+				<source>Entire glossary</source>
+				<target>Celý glosář</target>
+			</trans-unit>
+			<trans-unit id="search">
+				<source>Search for term:</source>
+				<target>Hledat výraz:</target>
+			</trans-unit>
+			<trans-unit id="search_button">
+				<source>Search</source>
+				<target>Hledat</target>
+			</trans-unit>
+			<trans-unit id="type.span">
+				<source>Item for:</source>
+				<target>Výraz pro:</target>
+			</trans-unit>
+			<trans-unit id="type.dfn">
+				<source>Definition:</source>
+				<target>Definice:</target>
+			</trans-unit>
+			<trans-unit id="type.acronym">
+				<source>Acronym:</source>
+				<target>Akronym:</target>
+			</trans-unit>
+			<trans-unit id="type.abbr">
+				<source>Abbreviation:</source>
+				<target>Zkratka:</target>
+			</trans-unit>
+			<trans-unit id="paginate_record_count">
+				<source>Showing items %d to %d</source>
+				<target>Zobrazeny položky %d až %d</target>
+			</trans-unit>
+			<trans-unit id="paginate_previous">
+				<source>Previous</source>
+				<target>Předchozí</target>
+			</trans-unit>
+			<trans-unit id="paginate_next">
+				<source>Next</source>
+				<target>Další</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

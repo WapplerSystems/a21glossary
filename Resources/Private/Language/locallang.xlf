@@ -42,7 +42,7 @@
 				<source>Previous</source>
 			</trans-unit>
 			<trans-unit id="paginate_next">
-				<source>Previous</source>
+				<source>Next</source>
 			</trans-unit>
 		</body>
 	</file>

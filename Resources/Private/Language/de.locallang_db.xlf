@@ -24,6 +24,10 @@
 				<source>Long text</source>
 				<target>Langtext</target>
 			</trans-unit>
+			<trans-unit id="tx_a21glossary_main.shorttype.I.-1">
+				<source>Not set</source>
+				<target>Nicht gesetzt</target>
+			</trans-unit>
 			<trans-unit id="tx_a21glossary_main.shorttype.I.0">
 				<source>Language</source>
 				<target>Sprache</target>
@@ -65,7 +69,7 @@
 				<target>Italienisch</target>
 			</trans-unit>
 			<trans-unit id="tx_a21glossary_main.language.I.5">
-				<source>Spain</source>
+				<source>Spanish</source>
 				<target>Spanisch</target>
 			</trans-unit>
 			<trans-unit id="tx_a21glossary_main.language.I.6">

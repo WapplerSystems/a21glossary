@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" target-language="sv" datatype="plaintext" product-name="a21glossary">
+		<header/>
+		<body>
+			<trans-unit id="label_acronym">
+				<source>acronym of</source>
+				<target>akronym för</target>
+			</trans-unit>
+			<trans-unit id="abbreviation_acronym">
+				<source>abbreviation of</source>
+				<target>förkortning för</target>
+			</trans-unit>
+			<trans-unit id="definition_acronym">
+				<source>definition</source>
+				<target>definition</target>
+			</trans-unit>
+			<trans-unit id="all_chars">
+				<source>Entire glossary</source>
+				<target>Hela ordlistan</target>
+			</trans-unit>
+			<trans-unit id="search">
+				<source>Search for term:</source>
+				<target>Sök efter term:</target>
+			</trans-unit>
+			<trans-unit id="search_button">
+				<source>Search</source>
+				<target>Sök</target>
+			</trans-unit>
+			<trans-unit id="type.span">
+				<source>Item for:</source>
+				<target>Term för:</target>
+			</trans-unit>
+			<trans-unit id="type.dfn">
+				<source>Definition:</source>
+				<target>Definition:</target>
+			</trans-unit>
+			<trans-unit id="type.acronym">
+				<source>Acronym:</source>
+				<target>Akronym:</target>
+			</trans-unit>
+			<trans-unit id="type.abbr">
+				<source>Abbreviation:</source>
+				<target>Förkortning:</target>
+			</trans-unit>
+			<trans-unit id="paginate_record_count">
+				<source>Showing items %d to %d</source>
+				<target>Visar poster %d till %d</target>
+			</trans-unit>
+			<trans-unit id="paginate_previous">
+				<source>Previous</source>
+				<target>Föregående</target>
+			</trans-unit>
+			<trans-unit id="paginate_next">
+				<source>Next</source>
+				<target>Nästa</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -54,7 +54,7 @@
 				<target>Vorherige</target>
 			</trans-unit>
 			<trans-unit id="paginate_next">
-				<source>Previous</source>
+				<source>Next</source>
 				<target>Nächste</target>
 			</trans-unit>
 		</body>

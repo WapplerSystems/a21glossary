@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" target-language="pl" datatype="plaintext" product-name="a21glossary">
+		<header/>
+		<body>
+			<trans-unit id="label_acronym">
+				<source>acronym of</source>
+				<target>akronim od</target>
+			</trans-unit>
+			<trans-unit id="abbreviation_acronym">
+				<source>abbreviation of</source>
+				<target>skrót od</target>
+			</trans-unit>
+			<trans-unit id="definition_acronym">
+				<source>definition</source>
+				<target>definicja</target>
+			</trans-unit>
+			<trans-unit id="all_chars">
+				<source>Entire glossary</source>
+				<target>Cały glosariusz</target>
+			</trans-unit>
+			<trans-unit id="search">
+				<source>Search for term:</source>
+				<target>Szukaj terminu:</target>
+			</trans-unit>
+			<trans-unit id="search_button">
+				<source>Search</source>
+				<target>Szukaj</target>
+			</trans-unit>
+			<trans-unit id="type.span">
+				<source>Item for:</source>
+				<target>Pozycja dla:</target>
+			</trans-unit>
+			<trans-unit id="type.dfn">
+				<source>Definition:</source>
+				<target>Definicja:</target>
+			</trans-unit>
+			<trans-unit id="type.acronym">
+				<source>Acronym:</source>
+				<target>Akronim:</target>
+			</trans-unit>
+			<trans-unit id="type.abbr">
+				<source>Abbreviation:</source>
+				<target>Skrót:</target>
+			</trans-unit>
+			<trans-unit id="paginate_record_count">
+				<source>Showing items %d to %d</source>
+				<target>Wyświetlanie pozycji od %d do %d</target>
+			</trans-unit>
+			<trans-unit id="paginate_previous">
+				<source>Previous</source>
+				<target>Poprzednia</target>
+			</trans-unit>
+			<trans-unit id="paginate_next">
+				<source>Next</source>
+				<target>Następna</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

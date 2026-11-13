@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="cs" datatype="plaintext" original="EXT:a21glossary/Configuration/Sets/A21glossary/labels.xlf" product-name="a21glossary">
+    <header/>
+    <body>
+      <trans-unit id="label">
+        <source>A21 Glossary</source>
+        <target>A21 Glosář</target>
+      </trans-unit>
+      <trans-unit id="categories.a21glossary">
+        <source>A21 Glossary</source>
+        <target>A21 Glosář</target>
+      </trans-unit>
+      <trans-unit id="categories.a21glossary.replacement">
+        <source>Replacement in page content</source>
+        <target>Nahrazování v obsahu stránky</target>
+      </trans-unit>
+      <trans-unit id="categories.a21glossary.linking">
+        <source>Linking</source>
+        <target>Propojení</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.storagePage">
+        <source>Storage pages</source>
+        <target>Úložné stránky</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.storagePage">
+        <source>Comma separated list of page IDs where the glossary entries are stored</source>
+        <target>Seznam ID stránek oddělených čárkami, kde jsou uloženy položky glosáře</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.glossaryPage">
+        <source>Glossary page</source>
+        <target>Stránka glosáře</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.glossaryPage">
+        <source>Page ID of the page with the glossary plugin; found terms link to it, and no replacement takes place on it</source>
+        <target>ID stránky se zásuvným modulem glosáře; nalezené výrazy na ni odkazují a na ní samotné k nahrazování nedochází</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.typeList">
+        <source>Page types</source>
+        <target>Typy stránek</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.typeList">
+        <source>Comma separated list of page types (typeNum) in which glossary terms are replaced</source>
+        <target>Seznam typů stránek (typeNum) oddělených čárkami, ve kterých jsou nahrazovány výrazy glosáře</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.caseSensitive">
+        <source>Case sensitive</source>
+        <target>Rozlišovat velikost písmen</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.caseSensitive">
+        <source>Search for glossary terms case sensitively (the setting of a single entry takes precedence)</source>
+        <target>Hledat výrazy glosáře s rozlišováním velikosti písmen (nastavení jednotlivé položky má přednost)</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.preserveCase">
+        <source>Preserve case</source>
+        <target>Zachovat velikost písmen</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.preserveCase">
+        <source>Keep the case of the word found in the content instead of the spelling of the entry</source>
+        <target>Zachovat velikost písmen slova nalezeného v obsahu namísto pravopisu položky</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.patternModifiers">
+        <source>Pattern modifiers</source>
+        <target>Modifikátory vzoru</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.patternModifiers">
+        <source>PCRE modifiers used when searching for glossary terms</source>
+        <target>Modifikátory PCRE použité při hledání výrazů glosáře</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.excludeTags">
+        <source>Excluded HTML elements</source>
+        <target>Vyloučené HTML elementy</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.excludeTags">
+        <source>Comma separated list of HTML elements in which no terms are replaced</source>
+        <target>Seznam HTML elementů oddělených čárkami, ve kterých nejsou nahrazovány žádné výrazy</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.keepGlossaryMarkers">
+        <source>Keep markers</source>
+        <target>Zachovat značky</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.keepGlossaryMarkers">
+        <source>Keep the glossary markers as HTML comments in the source code</source>
+        <target>Zachovat značky glosáře jako HTML komentáře ve zdrojovém kódu</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.linkToGlossary">
+        <source>Linked element types</source>
+        <target>Typy propojených elementů</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.linkToGlossary">
+        <source>Only link glossary terms of these element types</source>
+        <target>Propojovat pouze výrazy glosáře těchto typů elementů</target>
+      </trans-unit>
+      <trans-unit id="settings.plugin.tx_a21glossary.settings.linkOnlyIfNotEmpty">
+        <source>Link only if not empty</source>
+        <target>Propojit pouze pokud není prázdné</target>
+      </trans-unit>
+      <trans-unit id="settings.description.plugin.tx_a21glossary.settings.linkOnlyIfNotEmpty">
+        <source>Only link a term if at least one of these fields has content</source>
+        <target>Propojit výraz pouze pokud alespoň jedno z těchto polí obsahuje data</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
