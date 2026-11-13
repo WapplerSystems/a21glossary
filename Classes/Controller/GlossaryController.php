@@ -25,7 +25,7 @@ class GlossaryController extends ActionController
      *
      * @throws InvalidQueryException
      */
-    public function indexAction($char = null): ResponseInterface
+    public function indexAction(?string $char = null): ResponseInterface
     {
         if (!empty($char)) {
             $glossaryItems = $this->glossaryRepository->findAllWithChar($char);
@@ -34,7 +34,7 @@ class GlossaryController extends ActionController
         }
 
         $paginationConfiguration = $this->settings['paginate'] ?? [];
-        $itemsPerPage = (int)($paginationConfiguration['itemsPerPage'] ?: 10);
+        $itemsPerPage = (int)($paginationConfiguration['itemsPerPage'] ?? 10 ?: 10);
         $maximumNumberOfLinks = (int)($paginationConfiguration['maximumNumberOfLinks'] ?? 0);
 
         $currentPage = $this->request->hasArgument('currentPage') ? (int)$this->request->getArgument('currentPage') : 1;
@@ -60,7 +60,7 @@ class GlossaryController extends ActionController
      *
      * @throws InvalidQueryException
      */
-    public function searchAction($q): ResponseInterface
+    public function searchAction(string $q = ''): ResponseInterface
     {
         $this->view->assign('q', $q);
         $this->view->assign('items', $this->glossaryRepository->findAllWithQuery($q));

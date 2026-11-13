@@ -6,8 +6,3 @@ services:
 
   WapplerSystems\A21glossary\:
     resource: '../Classes/*'
-
-  WapplerSystems\A21glossary\EventListener\AfterCacheableContentIsGeneratedEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'a21glossary/content-modifier'
