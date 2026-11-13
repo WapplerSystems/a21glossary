@@ -46,7 +46,7 @@ class Glossary extends AbstractEntity
      */
     public function getShort(): string
     {
-        return $this->short;
+        return $this->short ?? '';
     }
 
     /**
@@ -54,7 +54,7 @@ class Glossary extends AbstractEntity
      */
     public function getShortcut(): string
     {
-        return $this->shortcut;
+        return $this->shortcut ?? '';
     }
 
     /**
@@ -62,7 +62,7 @@ class Glossary extends AbstractEntity
      */
     public function getLongversion(): string
     {
-        return $this->longversion;
+        return $this->longversion ?? '';
     }
 
     /**
@@ -70,7 +70,7 @@ class Glossary extends AbstractEntity
      */
     public function getShorttype(): string
     {
-        return $this->shorttype;
+        return $this->shorttype ?? '';
     }
 
     /**
@@ -78,7 +78,7 @@ class Glossary extends AbstractEntity
      */
     public function getLanguage(): string
     {
-        return $this->language;
+        return $this->language ?? '';
     }
 
     /**
@@ -86,7 +86,7 @@ class Glossary extends AbstractEntity
      */
     public function getDescription(): string
     {
-        return $this->description;
+        return $this->description ?? '';
     }
 
     /**
@@ -94,7 +94,7 @@ class Glossary extends AbstractEntity
      */
     public function getLink(): string
     {
-        return $this->link;
+        return $this->link ?? '';
     }
 
     /**

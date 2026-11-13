@@ -153,6 +153,7 @@ class Processor
         }
 
         $cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+        $cObj->setRequest($request);
 
         // sort entries from z-a to replace more special words with the same beginnng first eg. aminoacid before amino
         krsort($items);

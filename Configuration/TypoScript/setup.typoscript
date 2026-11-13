@@ -103,19 +103,19 @@ tx_a21glossary_main {
 
     acronym = TEXT
     acronym {
-      data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xml:label_acronym
+      data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xlf:label_acronym
       override = {$plugin.tx_a21glossary.settings.acronym_label}
     }
 
     abbr = TEXT
     abbr {
-      data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xml:label_abbreviation
+      data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xlf:label_abbreviation
       override = {$plugin.tx_a21glossary.settings.abbreviation_label}
     }
 
     dfn = TEXT
     dfn {
-      data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xml:label_definition
+      data = LLL:EXT:a21glossary/Resources/Private/Language/locallang.xlf:label_definition
       override = {$plugin.tx_a21glossary.settings.definition_label}
     }
   }

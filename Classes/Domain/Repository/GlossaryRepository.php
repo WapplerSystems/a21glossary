@@ -2,6 +2,7 @@
 
 namespace WapplerSystems\A21glossary\Domain\Repository;
 
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\Generic\Query;
@@ -31,6 +32,16 @@ class GlossaryRepository extends Repository
             ->getQueryBuilderForTable('tx_a21glossary_main');
         $queryBuilder->from('tx_a21glossary_main')
             ->selectLiteral('substr(' . $queryBuilder->quoteIdentifier('short') . ', 1, 1) AS ' . $queryBuilder->quoteIdentifier('char'))
+            ->where(
+                $queryBuilder->expr()->in(
+                    'pid',
+                    $queryBuilder->createNamedParameter($query->getQuerySettings()->getStoragePageIds(), Connection::PARAM_INT_ARRAY)
+                ),
+                $queryBuilder->expr()->in(
+                    'sys_language_uid',
+                    $queryBuilder->createNamedParameter([-1, $query->getQuerySettings()->getLanguageAspect()->getContentId()], Connection::PARAM_INT_ARRAY)
+                )
+            )
             ->groupBy('char')
             ->orderBy('char', 'ASC');
 

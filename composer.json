@@ -23,6 +23,8 @@
     },
     "require": {
         "typo3/cms-core": "^14.3",
+        "typo3/cms-extbase": "^14.3",
+        "typo3/cms-fluid": "^14.3",
         "typo3/cms-frontend": "^14.3"
     },
     "autoload": {
